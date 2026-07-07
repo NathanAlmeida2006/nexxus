@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "caf6f02631d1d2a0",
+    "type": "split",
+    "children": [
+      {
+        "id": "bcffb9bf8f014eaf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6c781974c0a859ee",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Engenharia Reversa de burocratik.com.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Engenharia Reversa de burocratik.com"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "952b09ce803b5f89",
+    "type": "split",
+    "children": [
+      {
+        "id": "665205a0c18b3ed6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d299683eafe4d635",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "70f138f26457a222",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Procurar"
+            }
+          },
+          {
+            "id": "ea0ee149fb7b8b76",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 423.5
+  },
+  "right": {
+    "id": "39d16ce57ceb738c",
+    "type": "split",
+    "children": [
+      {
+        "id": "beebd0def1b35bd6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0282874f7f423fe6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Links inversos"
+            }
+          },
+          {
+            "id": "9c2f71818aaf4a34",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Links de saída"
+            }
+          },
+          {
+            "id": "0147721c9a810cd7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "82739d8ec80ecbc0",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Todas as propriedades"
+            }
+          },
+          {
+            "id": "d9c1f5f09036012c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Sumário"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Criar nova base": false,
+      "media-extended:Open media library": false,
+      "media-extended:Open media quick switcher": false,
+      "obsidian-kanban:Create new board": false,
+      "obsidian-full-calendar:Open Full Calendar": false,
+      "excel:Create Excel File": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "6c781974c0a859ee",
+  "lastOpenFiles": [
+    "Briefing.md",
+    "Referências/Sites de Inspiração.md",
+    "Referências/Quem somos?.pdf",
+    "Engenharia Reversa de burocratik.com.md",
+    "Referências/11.png",
+    "Referências/5.png",
+    "Referências/4.png",
+    "Referências/3.png",
+    "Referências/2.png",
+    "Referências/1.png",
+    "Referências/10.png",
+    "Referências/9.png",
+    "Referências/8.png",
+    "Referências/7.png",
+    "Referências",
+    "table-editor-obsidian/styles.css",
+    "table-editor-obsidian/manifest.json",
+    "table-editor-obsidian/main.js",
+    "table-editor-obsidian/data.json",
+    "table-editor-obsidian",
+    "obsidian-tasks-plugin/styles.css",
+    "obsidian-tasks-plugin/manifest.json",
+    "obsidian-tasks-plugin/main.js"
+  ]
+}

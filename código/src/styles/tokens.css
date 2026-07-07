@@ -1,0 +1,42 @@
+/*
+ * Design tokens.
+ * Paleta: Briefing da Nexxus (gerenciamento/Briefing.md).
+ * Escala tipográfica, curvas e durações: Engenharia Reversa de burocratik.com (§2, §4.2, §5.2).
+ */
+:root {
+  /* Paleta */
+  --navy: #13275c;
+  --navy-deep: #0d1b40;
+  --blue: #234984;
+  --pistachio: #d7dea0;
+  --olive: #ced092;
+  --white: #ffffff;
+
+  /* Tipografia */
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --text-display: clamp(2.5rem, 6vw, 6.5rem);
+  --text-h2: clamp(2rem, 4vw, 4rem);
+  --text-h3: clamp(1.25rem, 2vw, 2rem);
+  --text-body: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
+  --text-micro: 0.75rem;
+
+  /* Motion — "nada linear, nada abaixo de 200ms, nada acima de 1s" */
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 350ms;
+  --dur-reveal: 800ms;
+  --dur-overlay: 700ms;
+  --stagger: 80ms;
+
+  /* Layout */
+  --container: 1500px;
+  --gutter: clamp(1rem, 2.5vw, 2rem);
+  --section-pad: clamp(5rem, 12vw, 12.5rem);
+  --header-h: 4.5rem;
+
+  /* Camadas */
+  --z-header: 100;
+  --z-overlay: 200;
+  --z-preloader: 300;
+  --z-cursor: 400;
+}
