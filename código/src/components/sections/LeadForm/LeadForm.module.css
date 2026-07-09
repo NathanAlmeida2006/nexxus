@@ -1,0 +1,164 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+.intro {
+  grid-column: 1 / span 4;
+}
+
+.intro :global(.section-head) {
+  margin-bottom: 1.5rem;
+}
+
+.lead {
+  max-width: 34ch;
+  margin-bottom: 2rem;
+}
+
+.form {
+  grid-column: 6 / span 7;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.field {
+  position: relative;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.control {
+  width: 100%;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 1.4rem 0 0.6rem;
+  color: var(--fg);
+  appearance: none;
+  transition: border-color var(--dur-micro) var(--ease-standard);
+}
+
+.field:hover .control {
+  border-color: rgb(19 39 92 / 45%);
+}
+
+.control:focus {
+  outline: none;
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 3.5rem;
+}
+
+/* Label flutuante: sobe e encolhe no foco ou quando há valor */
+.label {
+  position: absolute;
+  left: 0;
+  top: 1.35rem;
+  color: var(--muted);
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition:
+    transform var(--dur-micro) var(--ease-standard),
+    color var(--dur-micro) var(--ease-standard);
+}
+
+.control:focus ~ .label,
+.control:not(:placeholder-shown) ~ .label,
+select.control:valid ~ .label {
+  transform: translateY(-1.15rem) scale(0.72);
+  color: var(--accent);
+}
+
+/* Linha de foco: cresce 0 → 100%, eco do sublinhado animado do site */
+.line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform var(--dur-micro) var(--ease-standard);
+}
+
+.control:focus ~ .line {
+  transform: scaleX(1);
+}
+
+.chevron {
+  position: absolute;
+  right: 0;
+  top: 1.35rem;
+  color: var(--accent);
+  pointer-events: none;
+  transition: transform var(--dur-micro) var(--ease-standard);
+}
+
+.field:has(select:focus) .chevron {
+  transform: translateY(0.15em);
+}
+
+.actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.magnet {
+  display: inline-block;
+  transition: transform 300ms var(--ease-expo);
+  will-change: transform;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6em;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.glyph {
+  color: var(--accent);
+  transition: transform var(--dur-micro) var(--ease-standard);
+}
+
+.submit:hover .glyph,
+.submit:focus-visible .glyph {
+  transform: translate(0.3em, 0.1em);
+}
+
+.privacy {
+  font-size: 0.8rem;
+  color: var(--muted);
+  max-width: 38ch;
+}
+
+@media (max-width: 980px) {
+  .intro,
+  .form {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}

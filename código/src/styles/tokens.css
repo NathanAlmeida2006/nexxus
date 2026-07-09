@@ -14,7 +14,7 @@
 
   /* Tipografia */
   --font-sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --text-display: clamp(2.5rem, 6vw, 6.5rem);
+  --text-display: clamp(3rem, 8vw, 8.5rem);
   --text-h2: clamp(2rem, 4vw, 4rem);
   --text-h3: clamp(1.25rem, 2vw, 2rem);
   --text-body: clamp(1rem, 0.94rem + 0.25vw, 1.125rem);
@@ -23,6 +23,8 @@
   /* Motion — "nada linear, nada abaixo de 200ms, nada acima de 1s" */
   --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-back: cubic-bezier(0.34, 1.56, 0.64, 1);
   --dur-micro: 350ms;
   --dur-reveal: 800ms;
   --dur-overlay: 700ms;

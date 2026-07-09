@@ -1,0 +1,100 @@
+/*
+ * O topo da seção entra como cortina em arco elíptico sobre os Cases:
+ * --entry (0 → 1, já easado em useEntryProgress) aplaina o raio até o
+ * match-cut selar reto. Substitui o parallax na troca de capítulo.
+ */
+.manifesto {
+  --arc: calc((1 - var(--entry, 1)) * clamp(3.5rem, 10vw, 8rem));
+  border-top-left-radius: 50% var(--arc);
+  border-top-right-radius: 50% var(--arc);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.itemInner {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding-block: clamp(0.9rem, 1.8vw, 1.4rem);
+}
+
+.num {
+  color: var(--accent);
+}
+
+.text {
+  font-weight: 500;
+  max-width: 30em;
+}
+
+.item:last-child .text {
+  color: var(--accent);
+}
+
+/*
+ * Cordas: área de toque generosa com a linha no meio. A curva Bézier é
+ * animada via JS (GuitarString); aqui ficam o encordoamento de entrada
+ * (scaleX) e o acender da nota enquanto vibra.
+ */
+.string {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 2.75rem;
+  padding: 0;
+  touch-action: manipulation;
+}
+
+.string svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  transition: transform 1100ms var(--ease-expo) 150ms;
+}
+
+.item[data-inview='true'] .string svg {
+  transform: none;
+}
+
+.stringPath {
+  fill: none;
+  stroke: var(--line);
+  stroke-linecap: round;
+  transition: stroke 300ms var(--ease-standard);
+}
+
+.string:hover .stringPath,
+.string:focus-visible .stringPath,
+.string[data-vibrating='true'] .stringPath {
+  stroke: var(--accent);
+}
+
+.noteName {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity 250ms var(--ease-standard);
+  pointer-events: none;
+}
+
+.string[data-vibrating='true'] .noteName {
+  opacity: 1;
+}
+
+@media (max-width: 560px) {
+  .itemInner {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+  }
+}

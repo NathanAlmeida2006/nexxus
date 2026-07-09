@@ -1,0 +1,127 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.card:nth-child(1) {
+  grid-column: 1 / span 7;
+}
+
+.card:nth-child(2) {
+  grid-column: 8 / span 5;
+  margin-top: clamp(2rem, 8vw, 7rem);
+}
+
+.card:nth-child(3) {
+  grid-column: 3 / span 6;
+  margin-top: clamp(1rem, 4vw, 3rem);
+}
+
+.link {
+  display: block;
+}
+
+.frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform 700ms var(--ease-expo);
+}
+
+.link:hover .media,
+.link:focus-visible .media {
+  transform: scale(1.05);
+}
+
+.self {
+  background: var(--navy);
+  color: var(--pistachio);
+}
+
+.selfMark {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.selfSeal {
+  position: absolute;
+  right: 7%;
+  bottom: 9%;
+}
+
+.selfPetal {
+  position: absolute;
+  left: -40px;
+  top: -40px;
+  color: var(--blue);
+  opacity: 0.7;
+}
+
+.slot {
+  border: 2px dashed rgb(19 39 92 / 30%);
+  background: rgb(215 222 160 / 22%);
+  color: var(--navy);
+}
+
+.slotLabel {
+  color: var(--muted);
+}
+
+.slotMark {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.name {
+  margin-top: 1.25rem;
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  font-weight: 600;
+}
+
+.arrow {
+  display: inline-block;
+  color: var(--accent);
+  transition: transform var(--dur-micro) var(--ease-standard);
+}
+
+.link:hover .arrow,
+.link:focus-visible .arrow {
+  transform: translate(0.2em, 0.1em);
+}
+
+.tagline {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.meta {
+  margin-top: 0.5rem;
+  color: var(--muted);
+}
+
+.note {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  max-width: 60ch;
+  color: var(--muted);
+}
+
+@media (max-width: 800px) {
+  .card:nth-child(n) {
+    grid-column: 1 / -1;
+    margin-top: 0;
+  }
+}

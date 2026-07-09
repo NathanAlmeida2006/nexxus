@@ -36,7 +36,7 @@ export const hero = {
   titleLines: ['Primeiramente,', 'um sorriso :)'],
   lead:
     'Somos a Nexxus — a primeira empresa júnior de marketing da FURB. Social media, vídeo, identidade visual e tráfego pago para negócios reais do Vale do Itajaí, feitos por gente nova. Literalmente.',
-  cta: { label: 'bora conversar?', href: '#contato' },
+  cta: { label: 'bora conversar?', href: '#orcamento' },
   scrollCue: 'role para conhecer ↓',
 }
 
@@ -51,7 +51,7 @@ export const stats = {
   ],
   aside:
     'Fundada em 2026, dentro da FURB e do Movimento Empresa Júnior, ao lado do Núcleo Vale Boreal. Sem histórico para mostrar — então mostramos método, cultura e uma vontade absurda de fazer acontecer.',
-  cta: { label: 'quer fazer parte?', href: '#contato' },
+  cta: { label: 'quer fazer parte?', href: '#orcamento' },
 }
 
 export const marqueeWords = ['social media', 'vídeo', 'identidade visual', 'tráfego pago', 'gestão de redes']
@@ -159,6 +159,8 @@ export const team = {
     'Marketing Interno',
     'Área Técnica',
   ],
+  namesNote:
+    'Os onze nomes entram aqui assim que a papelada de fundação sair do forno. Burocracia é assim mesmo — a gente entende do assunto :)',
 }
 
 export const faq = {
@@ -190,6 +192,27 @@ export const faq = {
   next: 'próxima →',
 }
 
+export const leadForm = {
+  kicker: 'orçamento sem compromisso',
+  title: 'Conta pra gente.',
+  lead:
+    'Preencha em um minuto e a gente volta em até um dia útil — com ideias de verdade, não proposta de gaveta. Prometido: zero jargão na resposta.',
+  whatsappCta: 'prefere conversar? chama no whats',
+  fields: {
+    empresa: 'Nome da empresa',
+    contato: 'Nome do contato',
+    telefone: 'Telefone (com DDD)',
+    email: 'E-mail',
+    segmento: 'Segmento da empresa',
+    necessidade: 'Necessidade atual',
+    obs: 'Observações',
+  },
+  segmentos: ['Restaurante ou café', 'Comércio / loja', 'Clínica ou saúde', 'Serviços', 'Indústria', 'Outro'],
+  necessidades: ['Social media', 'Vídeo', 'Identidade visual', 'Tráfego pago', 'Um pouco de tudo', 'Ainda não sei :)'],
+  submit: 'quero uma proposta :)',
+  privacy: 'Seus dados servem só para a gente responder. Nada de spam — a gente nem teria tempo.',
+}
+
 export const footer = {
   titleLines: ['Deu match?', '↓'],
   contact: {
@@ -211,16 +234,6 @@ export const footer = {
     kicker: 'onde',
     lines: ['FURB — Campus I', 'Rua Antônio da Veiga, 140', 'Blumenau — SC, Brasil'],
     gps: { label: '26°54′11″S 49°04′40″W', href: 'https://maps.google.com/?q=-26.90305,-49.07775' },
-  },
-  form: {
-    kicker: 'manda um oi',
-    fields: {
-      name: 'seu nome',
-      email: 'seu e-mail',
-      message: 'sua mensagem (pode ser informal, a gente também é)',
-    },
-    submit: 'enviar :)',
-    privacy: 'Prometemos usar seu contato só para responder. Nada de spam — a gente nem teria tempo.',
   },
   bottom: {
     copyright: '© 2026 Nexxus Hub EJ — feita por nós mesmos, é claro.',

@@ -11,14 +11,12 @@
             "id": "6c781974c0a859ee",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "Engenharia Reversa de burocratik.com.md",
-                "mode": "preview",
-                "source": false
+                "file": "Referências/1.png"
               },
-              "icon": "lucide-file",
-              "title": "Engenharia Reversa de burocratik.com"
+              "icon": "lucide-image",
+              "title": "1"
             }
           }
         ]
@@ -189,10 +187,10 @@
   },
   "active": "6c781974c0a859ee",
   "lastOpenFiles": [
+    "Engenharia Reversa de burocratik.com.md",
     "Briefing.md",
     "Referências/Sites de Inspiração.md",
     "Referências/Quem somos?.pdf",
-    "Engenharia Reversa de burocratik.com.md",
     "Referências/11.png",
     "Referências/5.png",
     "Referências/4.png",

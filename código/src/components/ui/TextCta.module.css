@@ -1,0 +1,21 @@
+.cta {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6em;
+  font-size: var(--text-micro);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: transform 300ms var(--ease-expo);
+  will-change: transform;
+}
+
+.glyph {
+  color: var(--accent);
+  transition: transform var(--dur-micro) var(--ease-standard);
+}
+
+.cta:hover .glyph,
+.cta:focus-visible .glyph {
+  transform: translate(0.3em, 0.1em);
+}

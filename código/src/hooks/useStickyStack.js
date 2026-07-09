@@ -1,0 +1,33 @@
+import { useEffect } from 'react'
+
+/*
+ * Calcula o top sticky de cada .section: seções mais altas que o viewport
+ * recebem top negativo para rolarem por inteiro antes de fixar e serem
+ * cobertas pela seção seguinte (efeito match-cut). O ResizeObserver cobre
+ * mudanças de altura (accordion, imagens, resize).
+ */
+export default function useStickyStack() {
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll('.section'))
+    if (!sections.length) return undefined
+    let raf = 0
+    const apply = () => {
+      raf = 0
+      sections.forEach((s) => {
+        s.style.top = `${Math.min(0, window.innerHeight - s.offsetHeight)}px`
+      })
+    }
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(apply)
+    }
+    apply()
+    const ro = new ResizeObserver(schedule)
+    sections.forEach((s) => ro.observe(s))
+    window.addEventListener('resize', schedule)
+    return () => {
+      ro.disconnect()
+      window.removeEventListener('resize', schedule)
+      cancelAnimationFrame(raf)
+    }
+  }, [])
+}

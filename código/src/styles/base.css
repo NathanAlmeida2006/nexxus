@@ -102,7 +102,14 @@ textarea {
   --line: rgb(19 39 92 / 14%);
 }
 
+/*
+ * Match-cut entre capítulos: cada seção fica presa no topo enquanto a
+ * seguinte desliza por cima. O top de seções mais altas que o viewport é
+ * recalculado em JS (useStickyStack) para que rolem até o fim antes de fixar.
+ */
 .section {
+  position: sticky;
+  top: 0;
   background: var(--bg);
   color: var(--fg);
   padding-block: var(--section-pad);
@@ -125,6 +132,7 @@ h1 {
   font-size: var(--text-display);
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 0.98;
   text-transform: uppercase;
 }
 
@@ -223,6 +231,60 @@ h3 {
 
 [data-inview='true'] .mask-line > span {
   transform: none;
+}
+
+/* Tipografia cinética: reveal letra a letra (rise + rotação) */
+.mask-row {
+  display: block;
+}
+
+.mask-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.mask-char {
+  display: inline-block;
+  transform: translateY(120%) rotate(9deg);
+  transform-origin: 0 100%;
+  transition: transform 900ms var(--ease-expo);
+  transition-delay: calc(var(--i, 0) * 24ms);
+}
+
+[data-inview='true'] .mask-char {
+  transform: none;
+}
+
+/* Rolling text: o rótulo sobe e revela sua cópia no hover do link/botão */
+.roll {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.roll-inner {
+  position: relative;
+  display: block;
+  transition: transform var(--dur-micro) var(--ease-expo);
+}
+
+.roll-inner > span {
+  display: block;
+}
+
+.roll-inner > span + span {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+a:hover .roll-inner,
+a:focus-visible .roll-inner,
+button:hover .roll-inner,
+button:focus-visible .roll-inner {
+  transform: translateY(-100%);
 }
 
 /* Acessibilidade */

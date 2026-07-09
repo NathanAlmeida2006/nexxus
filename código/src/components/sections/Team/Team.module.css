@@ -1,0 +1,41 @@
+.note {
+  max-width: 48ch;
+  color: var(--muted);
+}
+
+.row {
+  border-top: 1px solid var(--line);
+}
+
+.row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.rowInner {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding-block: clamp(1rem, 2vw, 1.5rem);
+}
+
+.num {
+  color: var(--accent);
+}
+
+.area {
+  font-weight: 500;
+}
+
+.namesNote {
+  margin-top: 2rem;
+  max-width: 52ch;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .rowInner {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+  }
+}

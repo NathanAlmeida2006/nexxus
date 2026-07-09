@@ -1,35 +1,44 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Footer from './components/layout/Footer/Footer'
+import Header from './components/layout/Header/Header'
+import Cases from './components/sections/Cases/Cases'
+import Faq from './components/sections/Faq/Faq'
+import Hero from './components/sections/Hero/Hero'
+import LeadForm from './components/sections/LeadForm/LeadForm'
+import Manifesto from './components/sections/Manifesto/Manifesto'
+import Preloader from './components/sections/Preloader/Preloader'
+import Services from './components/sections/Services/Services'
+import Stats from './components/sections/Stats/Stats'
+import Team from './components/sections/Team/Team'
+import Cursor from './components/ui/Cursor'
+import { RevealGate } from './hooks/RevealGate'
+import useLenis from './hooks/useLenis'
+import useStickyStack from './hooks/useStickyStack'
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [ready, setReady] = useState(false)
+  useLenis()
+  useStickyStack()
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <RevealGate.Provider value={ready}>
+      <a className="skip-link" href="#conteudo">
+        Pular para o conteúdo
+      </a>
+      {!ready && <Preloader onDone={() => setReady(true)} />}
+      <Cursor />
+      <Header />
+      <main id="conteudo">
+        <Hero />
+        <Stats />
+        <Cases />
+        <Manifesto />
+        <Services />
+        <Team />
+        <Faq />
+        <LeadForm />
+      </main>
+      <Footer />
+    </RevealGate.Provider>
   )
 }
-
-export default App
