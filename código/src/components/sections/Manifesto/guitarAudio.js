@@ -78,7 +78,7 @@ export function pluck(stringIndex) {
   const src = c.createBufferSource()
   src.buffer = buf
   const gain = c.createGain()
-  gain.gain.value = 0.22
+  gain.gain.value = 0.05
   src.connect(gain)
   gain.connect(master)
   src.start()

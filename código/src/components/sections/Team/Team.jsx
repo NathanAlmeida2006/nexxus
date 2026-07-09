@@ -1,13 +1,14 @@
 import { team } from '../../../data/content'
 import useReveal from '../../../hooks/useReveal'
+import { pad2 } from '../../../utils/format'
 import styles from './Team.module.css'
 
 function TeamRow({ index, area }) {
   const ref = useReveal({ threshold: 0.3 })
   return (
     <li ref={ref} className={styles.row}>
-      <div className={`${styles.rowInner} reveal`} style={{ '--i': index % 3 }}>
-        <span className={`micro ${styles.num}`}>{String(index + 1).padStart(2, '0')}</span>
+      <div className={`${styles.rowInner} reveal ${index % 2 ? 'reveal-right' : 'reveal-left'}`} style={{ '--i': index % 3 }}>
+        <span className={`micro ${styles.num}`}>{pad2(index + 1)}</span>
         <h3 className={styles.area}>{area}</h3>
       </div>
     </li>

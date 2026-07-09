@@ -1,7 +1,6 @@
 import { hero } from '../../../data/content'
 import useReveal from '../../../hooks/useReveal'
 import RevealText from '../../ui/RevealText'
-import Seal from '../../ui/Seal'
 import TextCta from '../../ui/TextCta'
 import styles from './Hero.module.css'
 
@@ -24,8 +23,7 @@ export default function Hero() {
           </TextCta>
         </div>
       </div>
-      <Seal size={140} className={styles.seal} />
-      <p className={`micro reveal ${styles.cue}`} style={{ '--i': 5 }}>
+      <p className={`micro reveal float-bob ${styles.cue}`} style={{ '--i': 5 }}>
         {hero.scrollCue}
       </p>
     </section>

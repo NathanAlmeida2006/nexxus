@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { hasFinePointer, prefersReducedMotion } from '../utils/media'
 
 /*
  * Efeito magnético: o elemento acompanha o cursor dentro da própria área
@@ -11,8 +12,8 @@ export default function useMagnetic(strength = 0.25) {
   useEffect(() => {
     const el = ref.current
     if (!el) return undefined
-    if (!window.matchMedia('(pointer: fine)').matches) return undefined
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    if (!hasFinePointer()) return undefined
+    if (prefersReducedMotion()) return undefined
 
     const onMove = (e) => {
       const r = el.getBoundingClientRect()

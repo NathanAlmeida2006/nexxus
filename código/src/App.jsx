@@ -3,6 +3,7 @@ import Footer from './components/layout/Footer/Footer'
 import Header from './components/layout/Header/Header'
 import Cases from './components/sections/Cases/Cases'
 import Faq from './components/sections/Faq/Faq'
+import Globe from './components/sections/Globe/Globe'
 import Hero from './components/sections/Hero/Hero'
 import LeadForm from './components/sections/LeadForm/LeadForm'
 import Manifesto from './components/sections/Manifesto/Manifesto'
@@ -13,12 +14,14 @@ import Team from './components/sections/Team/Team'
 import Cursor from './components/ui/Cursor'
 import { RevealGate } from './hooks/RevealGate'
 import useLenis from './hooks/useLenis'
+import useSectionDepart from './hooks/useSectionDepart'
 import useStickyStack from './hooks/useStickyStack'
 
 export default function App() {
   const [ready, setReady] = useState(false)
   useLenis()
   useStickyStack()
+  useSectionDepart()
 
   return (
     <RevealGate.Provider value={ready}>
@@ -37,6 +40,7 @@ export default function App() {
         <Team />
         <Faq />
         <LeadForm />
+        <Globe />
       </main>
       <Footer />
     </RevealGate.Provider>

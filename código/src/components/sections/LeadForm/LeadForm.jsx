@@ -83,7 +83,7 @@ export default function LeadForm() {
                 {leadForm.title}
               </h2>
             </div>
-            <p className={`${styles.lead} reveal`} style={{ '--i': 2 }}>
+            <p className={`${styles.lead} reveal reveal-blur`} style={{ '--i': 2 }}>
               {leadForm.lead}
             </p>
             <div className="reveal" style={{ '--i': 3 }}>
@@ -107,7 +107,7 @@ export default function LeadForm() {
               index={9}
             />
             <Field id="obs" label={leadForm.fields.obs} as="textarea" full index={10} />
-            <div className={`${styles.actions} reveal`} style={{ '--i': 11 }}>
+            <div className={`${styles.actions} reveal reveal-pop`} style={{ '--i': 11 }}>
               <span ref={magRef} className={styles.magnet}>
                 <button type="submit" className={styles.submit}>
                   <span className={styles.glyph} aria-hidden="true">

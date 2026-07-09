@@ -213,6 +213,18 @@ export const leadForm = {
   privacy: 'Seus dados servem só para a gente responder. Nada de spam — a gente nem teria tempo.',
 }
 
+export const mundo = {
+  kicker: 'blumenau · vale do itajaí · sc',
+  title: 'Do Vale pro mundo.',
+  home: { label: 'a gente tá aqui :)', location: [-26.9155, -49.0709] },
+  dreams: [
+    { id: 'ny', label: 'um dia', location: [40.7128, -74.006] },
+    { id: 'lisboa', label: 'quem sabe', location: [38.7223, -9.1393] },
+    { id: 'toquio', label: 'por que não?', location: [35.6762, 139.6503] },
+  ],
+  note: 'Por enquanto, do Vale pro resto do Vale. Mas gira aí — sonhar é de graça :)',
+}
+
 export const footer = {
   titleLines: ['Deu match?', '↓'],
   contact: {

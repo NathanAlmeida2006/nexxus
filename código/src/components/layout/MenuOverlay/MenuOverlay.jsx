@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { nav, site } from '../../../data/content'
 import { getLenis, scrollToId } from '../../../hooks/useLenis'
+import { pad2 } from '../../../utils/format'
 import RollingText from '../../ui/RollingText'
 import styles from './MenuOverlay.module.css'
 
@@ -53,7 +54,7 @@ export default function MenuOverlay({ open, onClose }) {
                 onClick={go}
                 tabIndex={open ? 0 : -1}
               >
-                <span className={`micro ${styles.index}`}>{String(i + 1).padStart(2, '0')}</span>
+                <span className={`micro ${styles.index}`}>{pad2(i + 1)}</span>
                 <RollingText>{item.label}</RollingText>
               </a>
             </li>

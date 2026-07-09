@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
+import { prefersReducedMotion } from '../utils/media'
 
 let lenisInstance = null
 
@@ -13,8 +14,7 @@ export function scrollToId(hash) {
   if (lenisInstance) {
     lenisInstance.scrollTo(el, { duration: 1.2 })
   } else {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' })
+    el.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' })
   }
 }
 
@@ -29,7 +29,7 @@ export function onAnchorClick(e) {
 
 export default function useLenis() {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+    if (prefersReducedMotion()) return undefined
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

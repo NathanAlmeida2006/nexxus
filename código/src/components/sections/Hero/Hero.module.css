@@ -23,8 +23,6 @@
 /* O sorriso final vira adesivo: pistache e levemente rotacionado */
 .title :global(.mask-row):last-child :global(.mask-word):last-child {
   color: var(--accent);
-  transform: rotate(-8deg);
-  transform-origin: 50% 80%;
 }
 
 .lead {
@@ -55,7 +53,17 @@
 }
 
 @media (max-width: 760px) {
+  .title {
+    font-size: min(var(--text-display), 9.6vw);
+  }
+
   .seal {
-    display: none;
+    right: var(--gutter);
+    bottom: 5rem;
+  }
+
+  .seal svg {
+    width: 92px;
+    height: 92px;
   }
 }

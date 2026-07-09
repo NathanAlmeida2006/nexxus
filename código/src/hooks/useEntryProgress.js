@@ -1,4 +1,6 @@
 import { useEffect, useRef } from 'react'
+import { prefersReducedMotion } from '../utils/media'
+import listenScrollRaf, { setCssVar } from '../utils/rafScroll'
 
 /*
  * Progresso de entrada da seção (0 → 1) enquanto o topo dela viaja do rodapé
@@ -14,28 +16,15 @@ export default function useEntryProgress() {
   useEffect(() => {
     const el = ref.current
     if (!el) return undefined
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion()) {
       el.style.setProperty('--entry', '1')
       return undefined
     }
-    let raf = 0
-    const update = () => {
-      raf = 0
+    return listenScrollRaf(() => {
       const top = el.getBoundingClientRect().top
       const p = Math.min(1, Math.max(0, 1 - top / window.innerHeight))
-      el.style.setProperty('--entry', easeInOutCubic(p).toFixed(4))
-    }
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update)
-    }
-    update()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
-      cancelAnimationFrame(raf)
-    }
+      setCssVar(el, '--entry', easeInOutCubic(p).toFixed(4))
+    })
   }, [])
 
   return ref

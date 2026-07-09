@@ -1,24 +1,12 @@
 import { useEffect, useRef } from 'react'
+import { prefersReducedMotion } from '../../../utils/media'
+import { msSincePointerMove, trackPointerActivity } from '../../../utils/pointerActivity'
 import { NOTES, pluck } from './guitarAudio'
 import styles from './Manifesto.module.css'
 
 const W = 1200
 const MID = 30
 const REST = `M 0 ${MID} Q ${W / 2} ${MID} ${W} ${MID}`
-
-/*
- * Só dedilha no hover se o mouse de fato se moveu há pouco — sem isso, a
- * rolagem faria as cordas passarem sob o cursor parado e disparar notas
- * fantasma. (Toque e teclado entram pelo click.)
- */
-let lastPointerMove = 0
-window.addEventListener(
-  'pointermove',
-  () => {
-    lastPointerMove = performance.now()
-  },
-  { passive: true },
-)
 
 /*
  * Uma corda do violão: linha SVG que, dedilhada, vibra no modo fundamental
@@ -33,7 +21,10 @@ export default function GuitarString({ index }) {
   const raf = useRef(0)
   const lastPluck = useRef(0)
 
-  useEffect(() => () => cancelAnimationFrame(raf.current), [])
+  useEffect(() => {
+    trackPointerActivity()
+    return () => cancelAnimationFrame(raf.current)
+  }, [])
 
   const strum = (clientX) => {
     const now = performance.now()
@@ -46,7 +37,7 @@ export default function GuitarString({ index }) {
     if (!btn || !path) return
     btn.dataset.vibrating = 'true'
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (prefersReducedMotion()) {
       window.setTimeout(() => {
         btn.dataset.vibrating = 'false'
       }, 600)
@@ -87,7 +78,9 @@ export default function GuitarString({ index }) {
       aria-label={`Tocar corda ${index + 1} — ${note.label}`}
       onPointerEnter={(e) => {
         if (e.pointerType !== 'mouse') return
-        if (performance.now() - lastPointerMove > 150) return
+        /* sem movimento recente é a rolagem passando a corda sob o cursor
+           parado — não conta como dedilhada (toque/teclado entram no click) */
+        if (msSincePointerMove() > 150) return
         strum(e.clientX)
       }}
       onClick={(e) => strum(e.clientX)}

@@ -55,6 +55,15 @@
 
 @media (max-width: 520px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.25rem 1.25rem;
+  }
+
+  .value {
+    font-size: clamp(2.75rem, 12vw, 3.5rem);
+  }
+
+  .label {
+    max-width: none;
   }
 }

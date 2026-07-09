@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import listenScrollRaf from '../utils/rafScroll'
 
 /* Header auto-hide: some no scroll para baixo, reaparece no scroll para cima */
 export default function useHeaderHide({ delta = 8, minY = 120 } = {}) {
@@ -7,24 +8,17 @@ export default function useHeaderHide({ delta = 8, minY = 120 } = {}) {
 
   useEffect(() => {
     let lastY = window.scrollY
-    let raf = 0
-    const update = () => {
-      raf = 0
-      const y = window.scrollY
-      setAtTop(y < 10)
-      if (Math.abs(y - lastY) > delta) {
-        setHidden(y > lastY && y > minY)
-        lastY = y
-      }
-    }
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(raf)
-    }
+    return listenScrollRaf(
+      () => {
+        const y = window.scrollY
+        setAtTop(y < 10)
+        if (Math.abs(y - lastY) > delta) {
+          setHidden(y > lastY && y > minY)
+          lastY = y
+        }
+      },
+      { resize: false, immediate: false },
+    )
   }, [delta, minY])
 
   return { hidden, atTop }

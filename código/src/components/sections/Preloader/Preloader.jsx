@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { preloader } from '../../../data/content'
 import { getLenis } from '../../../hooks/useLenis'
+import { prefersReducedMotion } from '../../../utils/media'
 import styles from './Preloader.module.css'
 
 /* Preloader tipográfico: "somos a nexxus." em stagger, depois o painel sobe */
@@ -20,7 +21,7 @@ export default function Preloader({ onDone }) {
       onDone()
     }
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const reduced = prefersReducedMotion()
     const tLeave = setTimeout(() => setLeaving(true), reduced ? 0 : 1700)
     const tDone = setTimeout(finish, reduced ? 250 : 2450)
     return () => {

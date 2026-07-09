@@ -31,7 +31,7 @@ export default function Stats() {
         </div>
         <ul className={styles.grid}>
           {stats.items.map((item, i) => (
-            <li key={item.label} className={`${styles.cell} reveal`} style={{ '--i': i + 2 }}>
+            <li key={item.label} className={`${styles.cell} reveal reveal-pop`} style={{ '--i': i + 2 }}>
               <StatValue value={item.value} suffix={item.suffix} />
               <p className={`micro ${styles.label}`}>{item.label}</p>
             </li>

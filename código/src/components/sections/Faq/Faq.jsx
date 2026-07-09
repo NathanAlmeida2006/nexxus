@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { faq } from '../../../data/content'
 import useReveal from '../../../hooks/useReveal'
+import { pad2 } from '../../../utils/format'
 import RollingText from '../../ui/RollingText'
 import styles from './Faq.module.css'
 
@@ -9,7 +10,6 @@ export default function Faq() {
   const ref = useReveal({ threshold: 0.15 })
   const [index, setIndex] = useState(0)
   const total = faq.items.length
-  const fmt = (n) => String(n).padStart(2, '0')
 
   return (
     <section id="jogo-rapido" className="section" data-theme="white" ref={ref}>
@@ -22,7 +22,7 @@ export default function Faq() {
             {faq.title}
           </h2>
         </div>
-        <div className={`${styles.carousel} reveal`} style={{ '--i': 2 }}>
+        <div className={`${styles.carousel} reveal reveal-blur`} style={{ '--i': 2 }}>
           <div className={styles.viewport}>
             <div className={styles.track} style={{ transform: `translateX(-${index * 100}%)` }}>
               {faq.items.map((item, i) => (
@@ -43,7 +43,7 @@ export default function Faq() {
               <RollingText>{faq.prev}</RollingText>
             </button>
             <p className={`micro ${styles.pagination}`} aria-live="polite">
-              <span className={styles.current}>{fmt(index + 1)}</span> — {fmt(total)}
+              <span className={styles.current}>{pad2(index + 1)}</span> — {pad2(total)}
             </p>
             <button
               type="button"

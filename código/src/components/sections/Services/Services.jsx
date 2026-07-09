@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { services } from '../../../data/content'
 import useMediaQuery from '../../../hooks/useMediaQuery'
 import useReveal from '../../../hooks/useReveal'
+import { pad2 } from '../../../utils/format'
 import styles from './Services.module.css'
 
 /* Quatro colunas no desktop; no mobile, vira accordion (um pilar aberto por vez) */
@@ -26,12 +27,12 @@ export default function Services() {
             const expanded = !isMobile || open === i
             const head = (
               <>
-                <span className={`micro ${styles.num}`}>{String(i + 1).padStart(2, '0')}</span>
+                <span className={`micro ${styles.num}`}>{pad2(i + 1)}</span>
                 <h3 className={styles.pillarTitle}>{pillar.title}</h3>
               </>
             )
             return (
-              <div key={pillar.title} className={`${styles.pillar} reveal`} style={{ '--i': i + 2 }}>
+              <div key={pillar.title} className={`${styles.pillar} reveal reveal-tilt`} style={{ '--i': i + 2 }}>
                 {isMobile ? (
                   <button
                     type="button"

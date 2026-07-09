@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { manifesto } from '../../../data/content'
 import useEntryProgress from '../../../hooks/useEntryProgress'
 import useReveal from '../../../hooks/useReveal'
+import { pad2 } from '../../../utils/format'
 import RevealText from '../../ui/RevealText'
 import GuitarString from './GuitarString'
 import { unlockAudio } from './guitarAudio'
@@ -16,8 +17,8 @@ function ManifestoItem({ index, text }) {
   return (
     <li ref={ref} className={styles.item}>
       {index > 0 && <GuitarString index={index - 1} />}
-      <div className={`${styles.itemInner} reveal`} style={{ '--i': index % 3 }}>
-        <span className={`micro ${styles.num}`}>{String(index + 1).padStart(2, '0')}</span>
+      <div className={`${styles.itemInner} reveal reveal-left`} style={{ '--i': index % 3 }}>
+        <span className={`micro ${styles.num}`}>{pad2(index + 1)}</span>
         <h3 className={styles.text}>{text}</h3>
       </div>
     </li>
@@ -32,20 +33,21 @@ function ManifestoItem({ index, text }) {
 export default function Manifesto() {
   const revealRef = useReveal()
   const entryRef = useEntryProgress()
+  /* um só <section> alimenta os dois hooks; estável entre renders */
+  const sectionRef = useCallback(
+    (el) => {
+      revealRef.current = el
+      entryRef.current = el
+    },
+    [revealRef, entryRef],
+  )
 
   useEffect(() => {
     unlockAudio()
   }, [])
 
   return (
-    <section
-      className={`section ${styles.manifesto}`}
-      data-theme="navy"
-      ref={(el) => {
-        revealRef.current = el
-        entryRef.current = el
-      }}
-    >
+    <section className={`section ${styles.manifesto}`} data-theme="navy" ref={sectionRef}>
       <div className="container">
         <div className="section-head">
           <p className="micro reveal" style={{ '--i': 0 }}>

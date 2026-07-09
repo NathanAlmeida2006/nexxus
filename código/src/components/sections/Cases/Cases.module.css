@@ -124,4 +124,8 @@
     grid-column: 1 / -1;
     margin-top: 0;
   }
+
+  .card + .card {
+    margin-top: 1.75rem;
+  }
 }

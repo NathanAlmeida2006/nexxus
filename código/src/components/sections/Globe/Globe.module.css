@@ -1,0 +1,65 @@
+.mundo {
+  /* o glow do globo pode encostar nas bordas em telas estreitas */
+  overflow-x: clip;
+}
+
+.wrap {
+  position: relative;
+  width: min(540px, 82vw);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  user-select: none;
+}
+
+.canvas {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-standard);
+  /* pan-y: arrastar gira o globo sem sequestrar o scroll vertical no touch */
+  touch-action: pan-y;
+}
+
+/*
+ * Etiquetas ancoradas nos marcadores/arcos (CSS Anchor Positioning).
+ * Estilo de adesivo do sistema: pílula pistache para o "aqui" e
+ * contorno claro para os destinos-sonho.
+ */
+.tag {
+  position: absolute;
+  bottom: anchor(top);
+  left: anchor(center);
+  translate: -50% 0;
+  margin-bottom: 10px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: var(--text-micro);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  pointer-events: none;
+  transition:
+    opacity 0.8s var(--ease-standard),
+    filter 0.8s var(--ease-standard);
+}
+
+.homeTag {
+  composes: tag;
+  background: var(--pistachio);
+  color: var(--navy);
+}
+
+.dreamTag {
+  composes: tag;
+  border: 1px solid var(--pistachio);
+  color: var(--pistachio);
+  background: var(--navy);
+}
+
+.note {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  color: var(--muted);
+}

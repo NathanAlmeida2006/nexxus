@@ -1,8 +1,6 @@
 import { cases, site } from '../../../data/content'
 import { onAnchorClick } from '../../../hooks/useLenis'
 import useReveal from '../../../hooks/useReveal'
-import Petal from '../../ui/Petal'
-import Seal from '../../ui/Seal'
 import styles from './Cases.module.css'
 
 /*
@@ -13,9 +11,7 @@ function CaseMedia({ item }) {
   if (item.type === 'self') {
     return (
       <div className={`${styles.media} ${styles.self}`}>
-        <Petal size={150} className={styles.selfPetal} />
         <span className={styles.selfMark}>{site.wordmark}</span>
-        <Seal size={100} className={styles.selfSeal} />
       </div>
     )
   }
@@ -31,7 +27,7 @@ function CaseMedia({ item }) {
    por conta do arco de entrada do Manifesto */
 function CaseCard({ item, index }) {
   return (
-    <article className={`${styles.card} reveal`} style={{ '--i': index + 2 }}>
+    <article className={`${styles.card} reveal ${index % 2 ? 'reveal-right' : 'reveal-left'}`} style={{ '--i': index + 2 }}>
       <a
         href={item.href}
         className={styles.link}

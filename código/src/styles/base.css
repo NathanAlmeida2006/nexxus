@@ -11,6 +11,13 @@
 
 html {
   background: var(--navy);
+  /* clip (não hidden): corta o vazamento lateral dos reveals translateX
+     sem criar scroll container — preserva o position: sticky das seções */
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
 }
 
 html.is-loading,
@@ -211,10 +218,70 @@ h3 {
   transition-delay: calc(var(--i, 0) * var(--stagger));
 }
 
+/*
+ * Variantes de reveal — cada seção entra com uma "personalidade":
+ * deslize lateral, pop de adesivo (escala com overshoot), subida
+ * profunda e blur-fade — sempre retos, sem rotação. Todas reversíveis
+ * via [data-inview] e respeitam o stagger por --i. Precisam vir ANTES
+ * do reset [data-inview='true'] (mesma especificidade — a ordem decide).
+ */
+.reveal.reveal-left {
+  transform: translateX(-72px);
+}
+
+.reveal.reveal-right {
+  transform: translateX(72px);
+}
+
+.reveal.reveal-pop {
+  transform: translateY(36px) scale(0.78);
+  transition-timing-function: var(--ease-standard), var(--ease-back);
+}
+
+.reveal.reveal-tilt {
+  transform: translateY(64px) scale(0.96);
+}
+
+.reveal.reveal-blur {
+  transform: translateY(24px) scale(0.985);
+  filter: blur(14px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-expo),
+    transform var(--dur-reveal) var(--ease-expo),
+    filter var(--dur-reveal) var(--ease-expo);
+  transition-delay: calc(var(--i, 0) * var(--stagger));
+}
+
 [data-inview='true'] .reveal,
 .reveal[data-inview='true'] {
   opacity: 1;
   transform: none;
+  filter: none;
+}
+
+/*
+ * Fade-out de capítulo: enquanto a seção seguinte desliza por cima
+ * (sticky stack), a coberta recebe --depart 0 → 1 (useSectionDepart)
+ * e o conteúdo recua, encolhe e apaga — reversível ao rolar de volta.
+ */
+:where(.section) > * {
+  opacity: calc(1 - var(--depart, 0) * 0.9);
+  transform: translateY(calc(var(--depart, 0) * -7vh)) scale(calc(1 - var(--depart, 0) * 0.05));
+}
+
+/* Flutuação orgânica para ornamentos (selo, pétalas, scroll cue) */
+@keyframes float-bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+.float-bob {
+  animation: float-bob 3.2s var(--ease-inout) infinite;
 }
 
 .mask-line {
@@ -242,12 +309,13 @@ h3 {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
+  /* impede quebra no meio da palavra (os chars são inline-block) */
+  white-space: nowrap;
 }
 
 .mask-char {
   display: inline-block;
-  transform: translateY(120%) rotate(9deg);
-  transform-origin: 0 100%;
+  transform: translateY(120%);
   transition: transform 900ms var(--ease-expo);
   transition-delay: calc(var(--i, 0) * 24ms);
 }

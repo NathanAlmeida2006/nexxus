@@ -1,9 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource/poppins/400.css'
-import '@fontsource/poppins/500.css'
-import '@fontsource/poppins/600.css'
-import '@fontsource/poppins/700.css'
+/* Só o subset latin: todo o texto do site (pt-BR) vive nele — os glifos
+   decorativos (↳ ✶ ♪) nunca estiveram nos outros subsets e seguem no fallback */
+import '@fontsource/poppins/latin-400.css'
+import '@fontsource/poppins/latin-500.css'
+import '@fontsource/poppins/latin-600.css'
+import '@fontsource/poppins/latin-700.css'
 import 'lenis/dist/lenis.css'
 import './styles/tokens.css'
 import './styles/base.css'
