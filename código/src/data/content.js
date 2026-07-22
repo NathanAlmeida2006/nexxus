@@ -90,15 +90,15 @@ export const cases = {
 }
 
 export const manifesto = {
-  kicker: 'nossa cultura, escrita antes do primeiro contrato',
-  title: 'Regras não ditas.',
+  kicker: 'os princípios que a gente leva a sério, sem letra miúda',
+  title: 'Nossa cultura.',
   items: [
-    'Perguntar não é vergonha. Ninguém nasce sabendo marketing.',
-    'Toda reunião começa com cinco minutos de conversa aleatória.',
-    'Uma mensagem educada resolve mais do que dez cobranças.',
-    'Prazos importam. Avisar que não vai dar, também.',
-    'Pedir ajuda é legítimo — e devolver ajuda, obrigatório.',
-    'Se a EJ atrapalhar suas notas, seu trabalho ou sua vida, a gente revê.',
+    'Aqui, perguntar não é vergonha. Ninguém nasce sabendo marketing.',
+    'Toda reunião começa com cinco minutos de conversa sem pauta nenhuma.',
+    'A gente acredita que uma mensagem educada resolve mais do que dez cobranças.',
+    'Prazo é compromisso. Avisar que ele não vai fechar também é.',
+    'Pedir ajuda é legítimo por aqui — devolver ajuda é obrigatório.',
+    'Se a Nexxus atrapalhar suas notas, seu trabalho ou sua vida, a gente revê o combinado.',
     'Primeiramente, um sorriso :)',
   ],
 }

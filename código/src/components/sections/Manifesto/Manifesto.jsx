@@ -9,7 +9,7 @@ import { unlockAudio } from './guitarAudio'
 import styles from './Manifesto.module.css'
 
 /*
- * Cada regra revela ao entrar no viewport; a corda acima dela se encordoa
+ * Cada valor revela ao entrar no viewport; a corda acima dele se encordoa
  * junto (scaleX da esquerda pra direita, ver .string svg no CSS).
  */
 function ManifestoItem({ index, text }) {
@@ -26,8 +26,8 @@ function ManifestoItem({ index, text }) {
 }
 
 /*
- * "Regras não ditas" como braço de violão: 7 regras, 6 cordas tocáveis entre
- * elas. A seção entra por cima dos Cases com o topo em arco que se aplaina
+ * "Nossa cultura" como braço de violão: 7 valores, 6 cordas tocáveis entre
+ * eles. A seção entra por cima dos Cases com o topo em arco que se aplaina
  * (--entry via useEntryProgress) — a transição de capítulo, sem parallax.
  */
 export default function Manifesto() {
