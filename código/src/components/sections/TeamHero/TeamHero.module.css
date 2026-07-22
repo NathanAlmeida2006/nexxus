@@ -1,0 +1,85 @@
+/* Primeiro capítulo da rota: precisa de respiro para o header fixo */
+.hero {
+  padding-top: calc(var(--header-h) + clamp(3rem, 10vw, 8rem));
+}
+
+.lead {
+  max-width: 52ch;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+  color: var(--muted);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: clamp(1rem, 4vw, 3rem);
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.contador {
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-transform: lowercase;
+}
+
+.contador span {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Grade de 6 colunas: as duas horizontais ocupam 3 cada (uma linha),
+ * as três verticais ocupam 2 cada (linha seguinte). Ritmo assimétrico
+ * pelo deslocamento vertical dos ímpares, não por tamanhos aleatórios.
+ */
+.mosaico {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  margin-top: clamp(3rem, 8vw, 6rem);
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  background: rgb(255 255 255 / 6%);
+}
+
+.item[data-orientacao='h'] {
+  grid-column: span 3;
+  aspect-ratio: 3 / 2;
+}
+
+.item[data-orientacao='v'] {
+  grid-column: span 2;
+  aspect-ratio: 2 / 3;
+}
+
+.item:nth-child(odd) {
+  margin-top: clamp(0.75rem, 3vw, 2.5rem);
+}
+
+.foto {
+  position: absolute;
+  inset: -6% 0;
+  width: 100%;
+  height: 112%;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .mosaico {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .item[data-orientacao='h'] {
+    grid-column: span 2;
+  }
+
+  .item[data-orientacao='v'] {
+    grid-column: span 1;
+  }
+}
