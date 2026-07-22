@@ -33,6 +33,7 @@ function ItemMosaico({ item, index }) {
         sizes="(max-width: 760px) 92vw, 45vw"
         alt={item.alt}
         loading={index < 2 ? 'eager' : 'lazy'}
+        fetchPriority={index < 2 ? 'high' : undefined}
         decoding="async"
       />
     </li>
