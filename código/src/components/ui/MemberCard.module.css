@@ -1,0 +1,168 @@
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(0.75rem, 2.5vw, 2rem);
+  width: min(100%, 62rem);
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+
+.num {
+  grid-column: 1 / -1;
+  color: var(--accent);
+}
+
+.nome {
+  grid-column: 1;
+  justify-self: end;
+  text-align: right;
+  font-size: clamp(1.75rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.moldura {
+  grid-column: 2;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  width: clamp(8rem, 18vw, 15rem);
+  aspect-ratio: 3 / 4;
+  background: rgb(19 39 92 / 8%);
+}
+
+.setor {
+  grid-column: 3;
+  justify-self: start;
+  text-align: left;
+  color: var(--muted);
+}
+
+/* Ritmo assimétrico: o card par migra para a direita e espelha a ordem */
+.card[data-invertido] {
+  margin-left: auto;
+}
+
+.card[data-invertido] .num {
+  text-align: right;
+}
+
+.card[data-invertido] .nome {
+  grid-column: 3;
+  justify-self: start;
+  text-align: left;
+}
+
+.card[data-invertido] .setor {
+  grid-column: 1;
+  justify-self: end;
+  text-align: right;
+}
+
+.foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    opacity var(--dur-micro) var(--ease-standard),
+    transform 600ms var(--ease-expo);
+}
+
+.foto + .foto {
+  opacity: 0;
+}
+
+.card:hover .foto,
+.card:focus-within .foto {
+  transform: scale(1.04);
+}
+
+/* Só troca quem tem segunda foto — sem o guarda, Kamilly e Lucas sumiriam */
+.card[data-troca]:hover .foto:first-child,
+.card[data-troca]:focus-within .foto:first-child {
+  opacity: 0;
+}
+
+.card[data-troca]:hover .foto + .foto,
+.card[data-troca]:focus-within .foto + .foto {
+  opacity: 1;
+}
+
+/* Bloco denso (Área Técnica): card vertical, nome menor, sem rótulo repetido */
+.card[data-denso] {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  margin: 0;
+  gap: 0.75rem;
+  justify-items: start;
+  padding-block: 0;
+}
+
+.card[data-denso] .nome {
+  grid-column: 1;
+  justify-self: start;
+  text-align: left;
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+}
+
+.card[data-denso] .moldura {
+  grid-column: 1;
+  width: 100%;
+}
+
+.card[data-denso] .setor {
+  grid-column: 1;
+  justify-self: start;
+  text-align: left;
+}
+
+@media (max-width: 760px) {
+  .card,
+  .card[data-invertido] {
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    margin: 0;
+    justify-items: start;
+  }
+
+  .card .num,
+  .card[data-invertido] .num {
+    text-align: left;
+  }
+
+  .card .nome,
+  .card[data-invertido] .nome,
+  .card .setor,
+  .card[data-invertido] .setor {
+    grid-column: 1;
+    justify-self: start;
+    text-align: left;
+  }
+
+  .card .moldura,
+  .card[data-invertido] .moldura {
+    grid-column: 1;
+    width: min(100%, 18rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card[data-troca]:hover .foto:first-child,
+  .card[data-troca]:focus-within .foto:first-child {
+    opacity: 1;
+  }
+
+  .card[data-troca]:hover .foto + .foto,
+  .card[data-troca]:focus-within .foto + .foto {
+    opacity: 0;
+  }
+
+  .card:hover .foto,
+  .card:focus-within .foto {
+    transform: none;
+  }
+}

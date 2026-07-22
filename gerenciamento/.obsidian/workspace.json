@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Briefing.md",
+                "file": "Copys.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Briefing"
+              "title": "Copys"
             }
           }
         ]
@@ -189,8 +189,8 @@
   },
   "active": "6c781974c0a859ee",
   "lastOpenFiles": [
-    "Copys.md",
     "Briefing.md",
+    "Copys.md",
     "Referências/Quem somos?.pdf",
     "Referências/Sites de Inspiração.md",
     "Engenharia Reversa de burocratik.com.md",

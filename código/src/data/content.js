@@ -6,7 +6,7 @@
  *   - número do WhatsApp Business
  *   - e-mail (depende do Google Workspace pós-CNPJ)
  *   - URLs das redes sociais
- *   - nomes reais dos 11 fundadores na seção "As Nozes"
+ *   - cargos nominais de cada integrante (campo `cargo` em equipe.roster)
  */
 
 export const site = {
@@ -21,7 +21,7 @@ export const nav = [
   { id: 'inicio', label: 'Início' },
   { id: 'cases', label: 'Cases' },
   { id: 'servicos', label: 'O que fazemos' },
-  { id: 'nozes', label: 'As Nozes' },
+  { to: '/equipe', label: 'As Nozes' },
   { id: 'jogo-rapido', label: 'Jogo rápido' },
   { id: 'contato', label: 'Contato' },
 ]
@@ -90,16 +90,16 @@ export const cases = {
 }
 
 export const manifesto = {
-  kicker: 'nossa cultura, escrita antes do primeiro contrato',
-  title: 'Regras não ditas.',
+  kicker: 'os princípios que a gente leva a sério, sem letra miúda',
+  title: 'Nossa cultura.',
   items: [
-    'Perguntar não é vergonha. Ninguém nasce sabendo marketing.',
-    'Toda reunião começa com cinco minutos de conversa aleatória.',
-    'Uma mensagem educada resolve mais do que dez cobranças.',
-    'Prazos importam. Avisar que não vai dar, também.',
-    'Pedir ajuda é legítimo — e devolver ajuda, obrigatório.',
-    'Se a EJ atrapalhar suas notas, seu trabalho ou sua vida, a gente revê.',
-    'Primeiramente, um sorriso :)',
+    'Você traz o desafio, a gente constrói a solução. Na Nexxus, sua ideia ganha forma, estrutura e resultado.',
+    'Sabe aquele projeto que não sai da sua cabeça? A Nexxus tem as ferramentas e a equipe certa para colocar ele no mundo.',
+    'Não somos apenas executores, somos parceiros do seu negócio. A Nexxus caminha com você desde o primeiro rascunho até o lançamento.',
+    'Acreditamos que ideias brilhantes merecem execuções impecáveis. Deixe a Nexxus cuidar dos detalhes enquanto você foca em crescer.',
+    'Entender o seu negócio é o nosso passo número um. Antes de criar qualquer coisa, a Nexxus ouve você.',
+    'Nenhum projeto é igual ao outro, e nós sabemos disso. Na Nexxus, criamos soluções sob medida, pensadas exclusivamente para a sua realidade',
+    'O seu próximo grande projeto começa com uma boa conversa :)',
   ],
 }
 
@@ -146,21 +146,214 @@ export const services = {
   ],
 }
 
+/*
+ * Bloco-manifesto da Home: statement + uma foto + CTA. Os setores não vivem
+ * mais aqui — viraram os capítulos do roster em /equipe.
+ */
 export const team = {
   kicker: 'onze pessoas fundando algo que nunca existiu na FURB',
   title: 'As Nozes.',
-  note: '“Nozes” é como a gente se chama. Vem de “nós”. A gente avisou que o humor era assim.',
-  areas: [
-    'Presidência',
-    'Coordenação',
-    'Vendas',
-    'Recursos Humanos',
-    'Financeiro',
-    'Marketing Interno',
-    'Área Técnica',
+  statement: [
+    '“Nozes” vem de “nós”. A gente avisou que o humor era assim.',
+    'Ferramenta boa qualquer um contrata. O que muda o jogo são as onze pessoas que sentam do seu lado para entender o seu negócio — e que precisam que ele dê certo tanto quanto você.',
   ],
-  namesNote:
-    'Os onze nomes entram aqui assim que a papelada de fundação sair do forno. Burocracia é assim mesmo — a gente entende do assunto :)',
+  photo: {
+    base: '/fotos/equipe/time-h1',
+    alt: 'A equipe da Nexxus reunida no estúdio',
+  },
+  cta: { label: 'conhecer as 11 nozes', to: '/equipe' },
+}
+
+/*
+ * Subpágina /equipe. `cargo` e `instagram` ficam vazios de propósito: os dados
+ * confirmados são nome e setor, e título nominal em português carrega gênero
+ * gramatical que não cabe inferir. O componente cai no setor quando não há cargo.
+ * `focus` é o object-position do recorte 3:4 — ajuste de enquadramento por aqui.
+ */
+export const equipe = {
+  meta: {
+    title: 'As Nozes — Nexxus Hub EJ',
+    description:
+      'As onze pessoas que fundaram a primeira empresa júnior de marketing da FURB. Sem foto de banco de imagem: somos nós mesmos.',
+  },
+  hero: {
+    kicker: 'blumenau · vale do itajaí · sc',
+    titleLines: ['As Nozes.'],
+    lead:
+      'Onze estudantes que decidiram fundar uma empresa júnior do zero, dentro da FURB. Sem case herdado, sem sócio investidor, sem histórico para inflar: método, supervisão e uma vontade absurda de fazer acontecer.',
+    counter: { value: 11, label: 'nozes' },
+    cta: { label: 'ver a equipe', href: '#lista' },
+  },
+  mosaic: [
+    { base: '/fotos/equipe/time-h2', alt: 'Parte da equipe da Nexxus durante o ensaio', orientacao: 'h' },
+    { base: '/fotos/equipe/time-h3', alt: 'A equipe da Nexxus rindo entre uma foto e outra', orientacao: 'h' },
+    { base: '/fotos/equipe/time-v1', alt: 'Três integrantes da Nexxus posando no estúdio', orientacao: 'v' },
+    { base: '/fotos/equipe/time-v2', alt: 'Integrantes da Nexxus em foto de grupo vertical', orientacao: 'v' },
+    { base: '/fotos/equipe/time-v3', alt: 'A equipe da Nexxus reunida ao final do ensaio', orientacao: 'v' },
+  ],
+  culture: {
+    kicker: 'como é trabalhar com a gente',
+    title: 'Gente antes de ferramenta.',
+    paragraphs: [
+      'Trabalhar com a Nexxus vem de uma certeza simples: quem está construindo o próprio nome tem uma vontade absurda de fazer acontecer. A resposta para o seu negócio são onze mentes frescas, energia alta e zero vícios de mercado.',
+      'Aqui, enrolar o cliente com jargão não é bonito — ninguém precisa de termos difíceis para vender mais, e quem finge complexidade costuma entregar pior. Todo projeto começa te ouvindo de verdade, sem pauta engessada. Falar a sua língua é legítimo; descomplicar o marketing é obrigatório.',
+      'E se a estratégia não trouxer o impacto que a sua marca precisa, a gente senta com você e revê a rota. É o tipo de transparência que nenhuma agência tradicional coloca em contrato, mas que segura uma parceria real de pé.',
+    ],
+  },
+  roster: {
+    kicker: 'os onze, um por um',
+    title: 'Quem faz.',
+    setores: [
+      {
+        setor: 'Presidência',
+        slug: 'presidencia',
+        membros: [
+          {
+            nome: 'Júlia',
+            slug: 'julia',
+            fotos: ['/fotos/julia-1', '/fotos/julia-2'],
+            focus: '50% 20%',
+            alt: 'Júlia, da presidência da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+        ],
+      },
+      {
+        setor: 'Coordenação',
+        slug: 'coordenacao',
+        membros: [
+          {
+            nome: 'Lara',
+            slug: 'lara',
+            fotos: ['/fotos/lara-1', '/fotos/lara-2'],
+            focus: '50% 12%',
+            alt: 'Lara, da coordenação da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+        ],
+      },
+      {
+        setor: 'Vendas',
+        slug: 'vendas',
+        membros: [
+          {
+            nome: 'Ísis',
+            slug: 'isis',
+            fotos: ['/fotos/isis-1', '/fotos/isis-2'],
+            focus: '50% 15%',
+            alt: 'Ísis, do setor de vendas da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+        ],
+      },
+      {
+        setor: 'Recursos Humanos',
+        slug: 'recursos-humanos',
+        membros: [
+          {
+            nome: 'Leandro',
+            slug: 'leandro',
+            fotos: ['/fotos/leandro-1', '/fotos/leandro-2'],
+            focus: '50% 12%',
+            alt: 'Leandro, de recursos humanos da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+        ],
+      },
+      {
+        setor: 'Financeiro',
+        slug: 'financeiro',
+        membros: [
+          {
+            nome: 'Lavínia',
+            slug: 'lavinia',
+            fotos: ['/fotos/lavinia-1', '/fotos/lavinia-2'],
+            focus: '55% 12%',
+            alt: 'Lavínia, do financeiro da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+        ],
+      },
+      {
+        setor: 'Marketing Interno',
+        slug: 'marketing-interno',
+        membros: [
+          {
+            nome: 'Lucas',
+            slug: 'lucas',
+            fotos: ['/fotos/lucas-1'],
+            focus: '50% 25%',
+            alt: 'Lucas, do marketing interno da Nexxus, em retrato',
+            cargo: '',
+            instagram: '',
+          },
+        ],
+      },
+      {
+        setor: 'Área Técnica',
+        slug: 'area-tecnica',
+        membros: [
+          {
+            nome: 'Ana',
+            slug: 'ana',
+            fotos: ['/fotos/ana-1', '/fotos/ana-2'],
+            focus: '55% 15%',
+            alt: 'Ana, da área técnica da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+          {
+            nome: 'Otávio',
+            slug: 'otavio',
+            fotos: ['/fotos/otavio-1', '/fotos/otavio-2'],
+            focus: '50% 15%',
+            alt: 'Otávio, da área técnica da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+          {
+            nome: 'Kauã',
+            slug: 'kaua',
+            fotos: ['/fotos/kaua-1', '/fotos/kaua-2'],
+            focus: '50% 15%',
+            alt: 'Kauã, da área técnica da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+          {
+            nome: 'Luan',
+            slug: 'luan',
+            fotos: ['/fotos/luan-1', '/fotos/luan-2'],
+            focus: '50% 12%',
+            alt: 'Luan, da área técnica da Nexxus, em retrato de estúdio',
+            cargo: '',
+            instagram: '',
+          },
+          {
+            nome: 'Kamilly',
+            slug: 'kamilly',
+            fotos: ['/fotos/kamilly-1'],
+            focus: '50% 18%',
+            alt: 'Kamilly, da área técnica da Nexxus, em retrato',
+            cargo: '',
+            instagram: '',
+          },
+        ],
+      },
+    ],
+  },
+  join: {
+    kicker: 'gostou da nossa equipe?',
+    title: 'Quer ser a 12ª noz?',
+    lead:
+      'Se você chegou até aqui rolando a página inteira, já é um bom sinal. Estamos muito ansiosos para fazer contribuições ao seu negócio.',
+    cta: { label: 'chama a gente', to: '/#orcamento' },
+  },
 }
 
 export const faq = {

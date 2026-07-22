@@ -8,8 +8,9 @@ import listenScrollRaf, { setCssVar } from '../utils/rafScroll'
  * em base.css) consome o valor para recuar/apagar o conteúdo — contínuo,
  * dirigido pelo scroll e reversível ao voltar.
  */
-export default function useSectionDepart() {
+export default function useSectionDepart(routeKey = '') {
   useEffect(() => {
+    void routeKey
     if (prefersReducedMotion()) return undefined
     const sections = Array.from(document.querySelectorAll('.section'))
     if (sections.length < 2) return undefined
@@ -22,5 +23,5 @@ export default function useSectionDepart() {
         setCssVar(section, '--depart', p.toFixed(4))
       })
     })
-  }, [])
+  }, [routeKey])
 }

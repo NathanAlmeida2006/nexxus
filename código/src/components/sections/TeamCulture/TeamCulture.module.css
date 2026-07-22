@@ -1,0 +1,13 @@
+.texto {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 60ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.texto p:first-child {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.35;
+}

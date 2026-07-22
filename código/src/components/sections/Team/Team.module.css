@@ -1,41 +1,53 @@
-.note {
-  max-width: 48ch;
-  color: var(--muted);
-}
-
-.row {
-  border-top: 1px solid var(--line);
-}
-
-.row:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.rowInner {
+.corpo {
   display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 1.5rem;
-  align-items: baseline;
-  padding-block: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
 }
 
-.num {
+.statement {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 46ch;
+}
+
+.statement p {
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  line-height: 1.4;
+}
+
+.statement p:first-child {
   color: var(--accent);
 }
 
-.area {
-  font-weight: 500;
+.cta {
+  margin-top: 1rem;
+  align-self: flex-start;
 }
 
-.namesNote {
-  margin-top: 2rem;
-  max-width: 52ch;
-  color: var(--muted);
+.figura {
+  margin: 0;
 }
 
-@media (max-width: 560px) {
-  .rowInner {
-    grid-template-columns: 2.5rem 1fr;
-    gap: 1rem;
+/* A moldura reserva a proporção (CLS zero) e recorta o parallax da foto */
+.moldura {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: rgb(255 255 255 / 6%);
+}
+
+.foto {
+  position: absolute;
+  inset: -6% 0;
+  width: 100%;
+  height: 112%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .corpo {
+    grid-template-columns: minmax(0, 1fr);
   }
 }

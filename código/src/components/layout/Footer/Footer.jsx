@@ -1,5 +1,5 @@
 import { footer, site } from '../../../data/content'
-import { scrollToId } from '../../../hooks/useLenis'
+import { getLenis } from '../../../hooks/useLenis'
 import useReveal from '../../../hooks/useReveal'
 import RevealText from '../../ui/RevealText'
 import RollingText from '../../ui/RollingText'
@@ -61,7 +61,15 @@ export default function Footer() {
         <div className={styles.bottom}>
           <p className="micro">{footer.bottom.copyright}</p>
           <p className={`micro ${styles.bottomClaim}`}>{footer.bottom.claim}</p>
-          <button type="button" className="micro link-underline" onClick={() => scrollToId('#inicio')}>
+          <button
+            type="button"
+            className="micro link-underline"
+            onClick={() => {
+              const lenis = getLenis()
+              if (lenis) lenis.scrollTo(0)
+              else window.scrollTo({ top: 0, behavior: 'smooth' })
+            }}
+          >
             {footer.bottom.backToTop}
           </button>
         </div>

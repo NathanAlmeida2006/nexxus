@@ -1,0 +1,40 @@
+.capitulo {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.capitulo + .capitulo {
+  margin-top: clamp(2.5rem, 6vw, 5rem);
+}
+
+.rotulo {
+  color: var(--muted);
+}
+
+.contagem {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.fluxo {
+  display: block;
+}
+
+.denso {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+@media (max-width: 1000px) {
+  .denso {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .denso {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

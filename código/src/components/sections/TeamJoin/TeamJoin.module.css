@@ -1,0 +1,12 @@
+.corpo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.lead {
+  max-width: 52ch;
+  font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+  color: var(--muted);
+}
