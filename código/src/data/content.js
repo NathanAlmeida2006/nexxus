@@ -154,7 +154,7 @@ export const team = {
   kicker: 'onze pessoas fundando algo que nunca existiu na FURB',
   title: 'As Nozes.',
   statement: [
-    '”Nozes” vem de “nós”. A gente avisou que o humor era assim.',
+    '“Nozes” vem de “nós”. A gente avisou que o humor era assim.',
     'Ferramenta boa qualquer um contrata. O que muda o jogo são as onze pessoas que sentam do seu lado para entender o seu negócio — e que precisam que ele dê certo tanto quanto você.',
   ],
   photo: {
