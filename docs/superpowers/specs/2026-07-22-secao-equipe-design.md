@@ -27,7 +27,7 @@ narrativa de cultura pertencem à subpágina.
 | Decisão | Escolha |
 |---|---|
 | Roteamento | `react-router-dom`, URL real `/equipe`, com fallback SPA no host |
-| Seção da Home | Evoluir a `Team` atual (mantém setores numerados) + faixa de fotos de grupo + CTA |
+| Seção da Home | Bloco-manifesto: texto editorial + **uma** foto de equipe + CTA. Sem lista de setores |
 | Copy por pessoa | Apenas dado real: nome + setor. Campos `cargo` e `instagram` existem vazios |
 | Tratamento das fotos | Cor natural, corte 3:4 no CSS, troca para a 2ª foto no hover |
 | Escopo da `/equipe` | Hero + contador + mosaico → cultura → listagem por setor → CTA de recrutamento |
@@ -149,7 +149,7 @@ Em `código/src/data/content.js`, junto do restante do copy.
 export const equipe = {
   hero: { kicker, titleLines: [...], lead, cta: { label, href: '#lista' } },
   counter: { value: 11, label: 'nozes' },
-  mosaic: [ { base: '/fotos/equipe/grupo-1', alt, orientation: 'h' | 'v' } ],  // 6 fotos de grupo
+  mosaic: [ { base: '/fotos/equipe/grupo-2', alt, orientation: 'h' | 'v' } ],  // as 5 não usadas na Home
   culture: { kicker, title, paragraphs: [...] },
   roster: [
     {
@@ -177,23 +177,31 @@ export const equipe = {
 carregam gênero gramatical que não cabe inferir de foto ou de nome. O componente exibe `cargo` quando
 existir e o setor caso contrário.
 
-O objeto `team` (seção da Home) perde `namesNote` e ganha `mosaic` e `cta: { label, to: '/equipe' }`.
+O objeto `team` (seção da Home) perde `areas` e `namesNote`, e ganha `statement`, `photo: { base, alt }` e
+`cta: { label, to: '/equipe' }`.
 
-## 6. Seção da Home — evolução da `Team`
+## 6. Seção da Home — bloco-manifesto
 
-Mantém `id="nozes"`, `data-theme="navy"`, kicker, título e as 7 linhas numeradas de setor (que já são o
-padrão "valores numerados" da referência de estrutura). Mudanças:
+Mantém `id="nozes"` e `data-theme="navy"`; o resto é reescrito para o padrão People da referência de
+estrutura — **statement contido, não inventário**. A anatomia passa a ser:
 
-1. `namesNote` sai — os nomes existem agora e vivem na subpágina;
-2. entra uma faixa horizontal com as **3 fotos de grupo horizontais** (`horizontal1–3`), cada uma com
-   `useParallax` em fatores levemente distintos (0.88–0.94) para criar deriva entre elas. As 3 verticais
-   ficam reservadas para o mosaico do hero da `/equipe`, que usa as 6 — assim a Home antecipa sem repetir
-   o capítulo inteiro;
-3. entra um `TextCta` "conhecer as 11 nozes ↳" apontando para `/equipe`, com `data-cursor` para o cursor
-   customizado.
+1. **kicker** em `micro` (mantido);
+2. **título** "As Nozes." (mantido);
+3. **statement** curto e editorial (~2–3 linhas, medida ~46ch), com reveal por máscara de linha — o
+   argumento "as onze pessoas são o diferencial", incluindo a piada de origem do nome ("Nozes" vem de
+   "nós"), que hoje vive no campo `note`;
+4. **uma foto de equipe** (`horizontal1`), larga, com `useParallax` (fator 0.9) e reveal próprio;
+5. **`TextCta`** "conhecer as 11 nozes ↳" → `/equipe`, com `data-cursor` para o cursor customizado.
 
-A faixa é um `<ul>` de figuras com scroll horizontal por overflow no mobile e larguras desiguais no
-desktop (ritmo editorial assimétrico, não uma tira regular).
+**Sai da Home:** a lista numerada dos 7 setores e o `namesNote`. Os setores passam a existir apenas na
+`/equipe`, onde são os 7 capítulos do roster — a Home argumenta, a subpágina detalha. Isso remove a
+duplicação e alinha o bloco à nota §8.3 da referência ("texto grande e contido, não inventário").
+
+Em `content.js`, `team` perde `areas` e `namesNote`, e ganha `statement`, `photo` e `cta`. A foto é um
+campo do data: trocar `horizontal1` por outra é uma linha, sem tocar em componente.
+
+As outras 5 fotos de grupo (`horizontal2`, `horizontal3`, `vertical1–3`) ficam para o mosaico do hero da
+`/equipe` — nenhuma foto aparece nas duas páginas.
 
 ## 7. Página `/equipe`
 
@@ -201,7 +209,7 @@ Quatro capítulos, cada um uma `.section` participando do sticky stack existente
 
 | # | Componente | `data-theme` | Conteúdo |
 |---|---|---|---|
-| 1 | `TeamHero` | navy | Display "AS NOZES." em máscara de linha, lead, contador cru `nozes (11)`, mosaico assimétrico das 6 fotos de grupo com parallax, CTA-âncora "ver a equipe ↓" → `#lista` |
+| 1 | `TeamHero` | navy | Display "AS NOZES." em máscara de linha, lead, contador cru `nozes (11)`, mosaico assimétrico das 5 fotos de grupo restantes com parallax, CTA-âncora "ver a equipe ↓" → `#lista` |
 | 2 | `TeamCulture` | pistachio | Bloco de cultura em medida editorial (~60ch), reveal por máscara de linha, aside curto em micro |
 | 3 | `TeamRoster` | white | `id="lista"`; 7 capítulos de setor, cada um com rótulo e contador cru (`presidência (1)` … `área técnica (5)`); cada pessoa é um `MemberCard` |
 | 4 | `TeamJoin` | navy | "quer ser a 12ª noz?" + `TextCta` para `/#orcamento` |
@@ -283,7 +291,7 @@ código/src/utils/anchorHref.js
 código/package.json                         + react-router-dom
 código/src/main.jsx                         + BrowserRouter
 código/src/App.jsx                          shell + Routes
-código/src/data/content.js                  + equipe; team perde namesNote, ganha mosaic e cta
+código/src/data/content.js                  + equipe; team perde areas e namesNote, ganha statement, photo e cta
 código/src/components/sections/Team/*       faixa de fotos + CTA para /equipe
 código/src/components/layout/Header/Header.jsx        hrefs cientes de rota
 código/src/components/layout/MenuOverlay/MenuOverlay.jsx  "As Nozes" → /equipe
@@ -302,7 +310,8 @@ código/src/hooks/{useStickyStack,useSectionDepart,useHeaderTheme}.js   deps por
 5. `código/public/fotos/` abaixo de 6 MB no total.
 6. Hover em um card com duas fotos troca a imagem; em Kamilly e Lucas, não quebra nem pisca.
 7. Sob `prefers-reduced-motion`, nenhuma troca de foto e nenhum parallax.
-8. A seção da Home aponta para `/equipe` e não exibe mais o `namesNote`.
+8. A seção da Home é statement + uma foto + CTA para `/equipe`: sem lista de setores e sem `namesNote`.
+   Nenhuma foto de grupo aparece na Home e na `/equipe` ao mesmo tempo.
 
 ## 11. Fora de escopo
 
