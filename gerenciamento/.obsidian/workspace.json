@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Engenharia Reversa de burocratik.com.md",
-                "mode": "preview",
+                "file": "Copys.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Engenharia Reversa de burocratik.com"
+              "title": "Copys"
             }
           }
         ]
@@ -190,27 +190,29 @@
   "active": "6c781974c0a859ee",
   "lastOpenFiles": [
     "Briefing.md",
-    "Referências/Sites de Inspiração.md",
+    "Copys.md",
     "Referências/Quem somos?.pdf",
+    "Referências/Sites de Inspiração.md",
     "Engenharia Reversa de burocratik.com.md",
-    "Referências/11.png",
-    "Referências/5.png",
-    "Referências/4.png",
-    "Referências/3.png",
-    "Referências/2.png",
-    "Referências/1.png",
-    "Referências/10.png",
-    "Referências/9.png",
-    "Referências/8.png",
-    "Referências/7.png",
-    "Referências",
-    "table-editor-obsidian/styles.css",
-    "table-editor-obsidian/manifest.json",
-    "table-editor-obsidian/main.js",
-    "table-editor-obsidian/data.json",
-    "table-editor-obsidian",
-    "obsidian-tasks-plugin/styles.css",
-    "obsidian-tasks-plugin/manifest.json",
-    "obsidian-tasks-plugin/main.js"
+    "fotos/ísis/isis2.JPG",
+    "fotos/ísis/isis1.JPG",
+    "fotos/otávio/otávio2.JPG",
+    "fotos/otávio/otávio1.JPG",
+    "fotos/lívinia/i2.JPG",
+    "fotos/lívinia/i1.JPG",
+    "fotos/lucas/lucas1.jpeg",
+    "fotos/luan/luan2.JPG",
+    "fotos/luan/luan1.JPG",
+    "fotos/leandro/leandro2.JPG",
+    "fotos/ísis",
+    "fotos/otávio",
+    "fotos/lívinia",
+    "fotos/lucas",
+    "fotos/luan",
+    "fotos/leandro",
+    "fotos/lara",
+    "fotos/kaua",
+    "fotos/kamilly",
+    "Engenharia reversa — Locomotive® · Seção \"People\" (home) + página Careers.md"
   ]
 }
