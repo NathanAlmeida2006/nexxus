@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { nav, site } from '../../../data/content'
 import { getLenis, scrollToId } from '../../../hooks/useLenis'
 import { pad2 } from '../../../utils/format'
@@ -7,6 +8,7 @@ import styles from './MenuOverlay.module.css'
 
 export default function MenuOverlay({ open, onClose }) {
   const firstLinkRef = useRef(null)
+  const { pathname } = useLocation()
 
   useEffect(() => {
     if (!open) return undefined
@@ -45,20 +47,36 @@ export default function MenuOverlay({ open, onClose }) {
     >
       <nav aria-label="Navegação principal">
         <ol className={styles.list}>
-          {nav.map((item, i) => (
-            <li key={item.id} className={styles.item} style={{ '--i': i }}>
-              <a
-                ref={i === 0 ? firstLinkRef : undefined}
-                href={`#${item.id}`}
-                className={styles.link}
-                onClick={go}
-                tabIndex={open ? 0 : -1}
-              >
+          {nav.map((item, i) => {
+            const conteudo = (
+              <>
                 <span className={`micro ${styles.index}`}>{pad2(i + 1)}</span>
                 <RollingText>{item.label}</RollingText>
-              </a>
-            </li>
-          ))}
+              </>
+            )
+            const comuns = {
+              ref: i === 0 ? firstLinkRef : undefined,
+              className: styles.link,
+              tabIndex: open ? 0 : -1,
+            }
+            return (
+              <li key={item.label} className={styles.item} style={{ '--i': i }}>
+                {item.to ? (
+                  <Link {...comuns} to={item.to} onClick={onClose}>
+                    {conteudo}
+                  </Link>
+                ) : pathname === '/' ? (
+                  <a {...comuns} href={`#${item.id}`} onClick={go}>
+                    {conteudo}
+                  </a>
+                ) : (
+                  <Link {...comuns} to={`/#${item.id}`} onClick={onClose}>
+                    {conteudo}
+                  </Link>
+                )}
+              </li>
+            )
+          })}
         </ol>
       </nav>
       <div className={styles.foot} style={{ '--i': nav.length }}>

@@ -21,7 +21,7 @@ export const nav = [
   { id: 'inicio', label: 'Início' },
   { id: 'cases', label: 'Cases' },
   { id: 'servicos', label: 'O que fazemos' },
-  { id: 'nozes', label: 'As Nozes' },
+  { to: '/equipe', label: 'As Nozes' },
   { id: 'jogo-rapido', label: 'Jogo rápido' },
   { id: 'contato', label: 'Contato' },
 ]
