@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react'
  * Observa qual seção passa sob o header e devolve 'navy' | 'light'
  * para a troca de tema por seção (alternativa ao mix-blend-mode).
  */
-export default function useHeaderTheme() {
+export default function useHeaderTheme(routeKey = '') {
   const [onNavy, setOnNavy] = useState(true)
 
   useEffect(() => {
+    void routeKey
     const sections = document.querySelectorAll('[data-theme]')
     if (!sections.length) return undefined
     const io = new IntersectionObserver(
@@ -20,7 +21,7 @@ export default function useHeaderTheme() {
     )
     sections.forEach((s) => io.observe(s))
     return () => io.disconnect()
-  }, [])
+  }, [routeKey])
 
   return onNavy ? 'navy' : 'light'
 }

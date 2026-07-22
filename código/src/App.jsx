@@ -1,27 +1,25 @@
 import { useState } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/layout/Footer/Footer'
 import Header from './components/layout/Header/Header'
-import Cases from './components/sections/Cases/Cases'
-import Faq from './components/sections/Faq/Faq'
-import Globe from './components/sections/Globe/Globe'
-import Hero from './components/sections/Hero/Hero'
-import LeadForm from './components/sections/LeadForm/LeadForm'
-import Manifesto from './components/sections/Manifesto/Manifesto'
+import ScrollManager from './components/layout/ScrollManager'
 import Preloader from './components/sections/Preloader/Preloader'
-import Services from './components/sections/Services/Services'
-import Stats from './components/sections/Stats/Stats'
-import Team from './components/sections/Team/Team'
 import Cursor from './components/ui/Cursor'
 import { RevealGate } from './hooks/RevealGate'
 import useLenis from './hooks/useLenis'
 import useSectionDepart from './hooks/useSectionDepart'
 import useStickyStack from './hooks/useStickyStack'
+import Equipe from './pages/Equipe'
+import Home from './pages/Home'
 
 export default function App() {
   const [ready, setReady] = useState(false)
+  const { pathname } = useLocation()
   useLenis()
-  useStickyStack()
-  useSectionDepart()
+  /* A chave por rota faz os hooks reescanearem as .section da página nova.
+     O Lenis fica de fora: a instância precisa sobreviver à navegação. */
+  useStickyStack(pathname)
+  useSectionDepart(pathname)
 
   return (
     <RevealGate.Provider value={ready}>
@@ -29,18 +27,14 @@ export default function App() {
         Pular para o conteúdo
       </a>
       {!ready && <Preloader onDone={() => setReady(true)} />}
+      <ScrollManager />
       <Cursor />
       <Header />
       <main id="conteudo">
-        <Hero />
-        <Stats />
-        <Cases />
-        <Manifesto />
-        <Services />
-        <Team />
-        <Faq />
-        <LeadForm />
-        <Globe />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/equipe" element={<Equipe />} />
+        </Routes>
       </main>
       <Footer />
     </RevealGate.Provider>

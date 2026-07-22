@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { site } from '../../../data/content'
 import useHeaderHide from '../../../hooks/useHeaderHide'
 import useHeaderTheme from '../../../hooks/useHeaderTheme'
@@ -11,7 +12,8 @@ import styles from './Header.module.css'
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
   const { hidden, atTop } = useHeaderHide()
-  const theme = useHeaderTheme()
+  const { pathname } = useLocation()
+  const theme = useHeaderTheme(pathname)
   const menuBtnRef = useRef(null)
   const magRef = useMagnetic(0.3)
 
