@@ -91,6 +91,8 @@ textarea {
   --accent: var(--pistachio);
   --muted: rgb(255 255 255 / 55%);
   --line: rgb(255 255 255 / 16%);
+  /* Botões vazados em fundo navy usam o verde, não o branco */
+  --btn-ink: var(--pistachio);
 }
 
 [data-theme='pistachio'] {
