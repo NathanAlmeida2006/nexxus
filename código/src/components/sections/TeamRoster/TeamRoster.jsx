@@ -25,7 +25,7 @@ export default function TeamRoster() {
           </h2>
         </div>
         {equipe.roster.setores.map((setor) => {
-          const denso = setor.membros.length > 1
+          const denso = false
           return (
             <section
               key={setor.slug}
@@ -36,7 +36,7 @@ export default function TeamRoster() {
               <h3 id={`setor-${setor.slug}`} className={`micro ${styles.rotulo} reveal`}>
                 {setor.setor} <span className={styles.contagem}>({setor.membros.length})</span>
               </h3>
-              <ul className={denso ? styles.denso : styles.fluxo}>
+              <ul className={styles.fluxo}>
                 {setor.membros.map((membro) => {
                   numero += 1
                   return (

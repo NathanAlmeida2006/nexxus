@@ -1,4 +1,4 @@
-import TeamCulture from '../components/sections/TeamCulture/TeamCulture'
+import CarouselCultura from '../components/sections/CarouselCultura/CarouselCultura'
 import TeamHero from '../components/sections/TeamHero/TeamHero'
 import TeamJoin from '../components/sections/TeamJoin/TeamJoin'
 import TeamRoster from '../components/sections/TeamRoster/TeamRoster'
@@ -11,7 +11,7 @@ export default function Equipe() {
   return (
     <>
       <TeamHero />
-      <TeamCulture />
+      <CarouselCultura />
       <TeamRoster />
       <TeamJoin />
     </>

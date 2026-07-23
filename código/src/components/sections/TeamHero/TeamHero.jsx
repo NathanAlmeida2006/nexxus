@@ -1,6 +1,5 @@
 import { equipe } from '../../../data/content'
 import useCountUp from '../../../hooks/useCountUp'
-import useParallax from '../../../hooks/useParallax'
 import useReveal from '../../../hooks/useReveal'
 import RevealText from '../../ui/RevealText'
 import TextCta from '../../ui/TextCta'
@@ -18,7 +17,6 @@ function Contador({ value, label }) {
 
 /* Cada item precisa da própria chamada de hook — daí o componente separado */
 function ItemMosaico({ item, index }) {
-  const fotoRef = useParallax(index % 2 ? 0.94 : 0.88)
   return (
     <li
       className={`${styles.item} reveal reveal-tilt`}
@@ -26,7 +24,6 @@ function ItemMosaico({ item, index }) {
       style={{ '--i': index }}
     >
       <img
-        ref={fotoRef}
         className={styles.foto}
         src={`${item.base}-1600.webp`}
         srcSet={`${item.base}-900.webp 900w, ${item.base}-1600.webp 1600w`}

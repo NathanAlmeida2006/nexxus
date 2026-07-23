@@ -32,10 +32,10 @@ export const preloader = {
 }
 
 export const hero = {
-  kicker: 'Nexxus Hub EJ — Blumenau, SC',
+  kicker: 'Nexxus Hub EJ • Blumenau, SC',
   titleLines: ['Primeiramente,', 'um sorriso :)'],
   lead:
-    'Somos a Nexxus — a primeira empresa júnior de marketing da FURB. Social media, vídeo, identidade visual e tráfego pago para negócios reais do Vale do Itajaí, feitos por gente nova. Literalmente.',
+    'Somos a Nexxus, a primeira empresa júnior de marketing da FURB. Social media, vídeo, identidade visual e tráfego pago para negócios reais do Vale do Itajaí, feitos por gente nova. Literalmente.',
   cta: { label: 'bora conversar?', href: '#orcamento' },
   scrollCue: 'role para conhecer ↓',
 }
@@ -50,14 +50,14 @@ export const stats = {
     { value: 3, label: 'primeiros clientes que procuramos. é você?' },
   ],
   aside:
-    'Fundada em 2026, dentro da FURB e do Movimento Empresa Júnior, ao lado do Núcleo Vale Boreal. Sem histórico para mostrar — então mostramos método, cultura e uma vontade absurda de fazer acontecer.',
+    'Fundada em 2026, dentro da FURB e do Movimento Empresa Júnior, ao lado do Núcleo Vale Boreal. Sem histórico para mostrar, então mostramos método, cultura e uma vontade absurda de fazer acontecer.',
   cta: { label: 'quer fazer parte?', href: '#orcamento' },
 }
 
 export const marqueeWords = ['social media', 'vídeo', 'identidade visual', 'tráfego pago', 'gestão de redes']
 
 export const cases = {
-  kicker: 'portfólio em construção — como toda boa história',
+  kicker: 'portfólio em construção: como toda boa história',
   title: 'Cases.',
   items: [
     {
@@ -86,20 +86,20 @@ export const cases = {
     },
   ],
   note:
-    'Sem cases inventados, sem depoimentos de banco de imagem. O que temos é método, supervisão e a régua alta de quem precisa provar — a começar por esta página.',
+    'Sem cases inventados, sem depoimentos de banco de imagem. O que temos é método, supervisão e a régua alta de quem precisa provar: a começar por esta página.',
 }
 
 export const manifesto = {
   kicker: 'os princípios que a gente leva a sério, sem letra miúda',
   title: 'Nossa cultura.',
   items: [
-    'Você traz o desafio, a gente constrói a solução. Na Nexxus, sua ideia ganha forma, estrutura e resultado.',
-    'Sabe aquele projeto que não sai da sua cabeça? A Nexxus tem as ferramentas e a equipe certa para colocar ele no mundo.',
-    'Não somos apenas executores, somos parceiros do seu negócio. A Nexxus caminha com você desde o primeiro rascunho até o lançamento.',
-    'Acreditamos que ideias brilhantes merecem execuções impecáveis. Deixe a Nexxus cuidar dos detalhes enquanto você foca em crescer.',
-    'Entender o seu negócio é o nosso passo número um. Antes de criar qualquer coisa, a Nexxus ouve você.',
-    'Nenhum projeto é igual ao outro, e nós sabemos disso. Na Nexxus, criamos soluções sob medida, pensadas exclusivamente para a sua realidade',
-    'O seu próximo grande projeto começa com uma boa conversa :)',
+    'Seu desafio. Nossa solução.',
+    'Colocamos seu projeto no mundo.',
+    'Parceiros, do rascunho ao lançamento.',
+    'Execução impecável dos detalhes.',
+    'Entender seu negócio é passo um.',
+    'Soluções sob medida para você.',
+    'Tudo começa com uma conversa :)',
   ],
 }
 
@@ -155,7 +155,7 @@ export const team = {
   title: 'As Nozes.',
   statement: [
     '“Nozes” vem de “nós”. A gente avisou que o humor era assim.',
-    'Ferramenta boa qualquer um contrata. O que muda o jogo são as onze pessoas que sentam do seu lado para entender o seu negócio — e que precisam que ele dê certo tanto quanto você.',
+    'Ferramenta boa qualquer um contrata. O que muda o jogo são as onze pessoas que sentam do seu lado para entender o seu negócio e que precisam que ele dê certo tanto quanto você.',
   ],
   photo: {
     base: '/fotos/equipe/time-h1',
@@ -172,7 +172,7 @@ export const team = {
  */
 export const equipe = {
   meta: {
-    title: 'As Nozes — Nexxus Hub EJ',
+    title: 'As Nozes: Nexxus Hub EJ',
     description:
       'As onze pessoas que fundaram a primeira empresa júnior de marketing da FURB. Sem foto de banco de imagem: somos nós mesmos.',
   },
@@ -195,9 +195,7 @@ export const equipe = {
     kicker: 'como é trabalhar com a gente',
     title: 'Gente antes de ferramenta.',
     paragraphs: [
-      'Trabalhar com a Nexxus vem de uma certeza simples: quem está construindo o próprio nome tem uma vontade absurda de fazer acontecer. A resposta para o seu negócio são onze mentes frescas, energia alta e zero vícios de mercado.',
-      'Aqui, enrolar o cliente com jargão não é bonito — ninguém precisa de termos difíceis para vender mais, e quem finge complexidade costuma entregar pior. Todo projeto começa te ouvindo de verdade, sem pauta engessada. Falar a sua língua é legítimo; descomplicar o marketing é obrigatório.',
-      'E se a estratégia não trouxer o impacto que a sua marca precisa, a gente senta com você e revê a rota. É o tipo de transparência que nenhuma agência tradicional coloca em contrato, mas que segura uma parceria real de pé.',
+      'Escutamos de verdade, falamos sua língua e descomplicamos tudo: sem jargão, sem pauta engessada, sem fingir complexidade. E se a estratégia não trouxer o impacto que você merece? A gente senta com você, revê a rota e segura uma parceria real de pé. Isso não é promessa de agência: é transparência.',
     ],
   },
   roster: {
@@ -349,7 +347,7 @@ export const equipe = {
   },
   join: {
     kicker: 'gostou da nossa equipe?',
-    title: 'Quer ser a 12ª noz?',
+    title: 'Ficou interessado?',
     lead:
       'Se você chegou até aqui rolando a página inteira, já é um bom sinal. Estamos muito ansiosos para fazer contribuições ao seu negócio.',
     cta: { label: 'chama a gente', to: '/#orcamento' },
@@ -362,7 +360,7 @@ export const faq = {
   items: [
     {
       q: 'O que é uma empresa júnior?',
-      a: 'Uma associação sem fins lucrativos formada e gerida por estudantes universitários, que presta serviços reais — com contrato, nota fiscal e supervisão. Existe um movimento nacional inteiro disso, e a gente faz parte dele.',
+      a: 'Uma associação sem fins lucrativos formada e gerida por estudantes universitários, que presta serviços reais, com contrato, nota fiscal e supervisão. Existe um movimento nacional inteiro disso, e a gente faz parte dele.',
     },
     {
       q: 'Vocês são uma agência “de verdade”?',
@@ -370,11 +368,11 @@ export const faq = {
     },
     {
       q: 'Quanto custa?',
-      a: 'Menos do que você imagina. Por sermos sem fins lucrativos, o valor cobre o projeto — não a margem de sócio. Chama no WhatsApp que a gente monta um orçamento sem compromisso (e sem enrolação).',
+      a: 'Menos do que você imagina. Por sermos sem fins lucrativos, o valor cobre o projeto, não a margem de sócio. Chama no WhatsApp que a gente monta um orçamento sem compromisso (e sem enrolação).',
     },
     {
       q: 'Quem cuida do meu projeto?',
-      a: 'Estudantes de marketing da FURB, com método, supervisão e prazo combinado. Você fala direto com quem executa — sem telefone sem fio, sem “vou verificar com a equipe”.',
+      a: 'Estudantes de marketing da FURB, com método, supervisão e prazo combinado. Você fala direto com quem executa, sem telefone sem fio, sem “vou verificar com a equipe”.',
     },
     {
       q: 'Por que contratar quem está começando?',
@@ -389,7 +387,7 @@ export const leadForm = {
   kicker: 'orçamento sem compromisso',
   title: 'Conta pra gente.',
   lead:
-    'Preencha em um minuto e a gente volta em até um dia útil — com ideias de verdade, não proposta de gaveta. Prometido: zero jargão na resposta.',
+    'Preencha em um minuto e a gente volta em até um dia útil com ideias de verdade, não proposta de gaveta. Prometido: zero jargão na resposta.',
   whatsappCta: 'prefere conversar? chama no whats',
   fields: {
     empresa: 'Nome da empresa',
@@ -403,7 +401,7 @@ export const leadForm = {
   segmentos: ['Restaurante ou café', 'Comércio / loja', 'Clínica ou saúde', 'Serviços', 'Indústria', 'Outro'],
   necessidades: ['Social media', 'Vídeo', 'Identidade visual', 'Tráfego pago', 'Um pouco de tudo', 'Ainda não sei :)'],
   submit: 'quero uma proposta :)',
-  privacy: 'Seus dados servem só para a gente responder. Nada de spam — a gente nem teria tempo.',
+  privacy: 'Seus dados servem só para a gente responder. Nada de spam: a gente nem teria tempo.',
 }
 
 export const mundo = {
@@ -415,14 +413,14 @@ export const mundo = {
     { id: 'lisboa', label: 'quem sabe', location: [38.7223, -9.1393] },
     { id: 'toquio', label: 'por que não?', location: [35.6762, 139.6503] },
   ],
-  note: 'Por enquanto, do Vale pro resto do Vale. Mas gira aí — sonhar é de graça :)',
+  note: 'Por enquanto, do Vale pro resto do Vale. Mas gira aí, sonhar é de graça :)',
 }
 
 export const footer = {
   titleLines: ['Deu match?', '↓'],
   contact: {
     kicker: 'novos negócios',
-    lead: 'Conta pra gente o que o seu negócio precisa. Respondemos rápido — e com um sorriso.',
+    lead: 'Conta pra gente o que o seu negócio precisa. Respondemos rápido e com um sorriso.',
     emailLabel: 'manda um e-mail',
     whatsappLabel: 'chama no whats',
   },
@@ -437,11 +435,11 @@ export const footer = {
   },
   address: {
     kicker: 'onde',
-    lines: ['FURB — Campus I', 'Rua Antônio da Veiga, 140', 'Blumenau — SC, Brasil'],
+    lines: ['FURB, Campus I', 'Rua Antônio da Veiga, 140', 'Blumenau, SC, Brasil'],
     gps: { label: '26°54′11″S 49°04′40″W', href: 'https://maps.google.com/?q=-26.90305,-49.07775' },
   },
   bottom: {
-    copyright: '© 2026 Nexxus Hub EJ — feita por nós mesmos, é claro.',
+    copyright: '© 2026 Nexxus Hub EJ, feita por nós mesmos, é claro.',
     claim: '1ª Empresa Júnior de Marketing da FURB',
     backToTop: 'voltar ao topo ↑',
   },

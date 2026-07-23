@@ -45,7 +45,13 @@
 .item {
   position: relative;
   overflow: hidden;
-  background: rgb(255 255 255 / 6%);
+  background: #faf8f3;
+  border-radius: 0;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 12px 64px 12px;
 }
 
 .item[data-orientacao='h'] {
@@ -63,23 +69,43 @@
 }
 
 .foto {
-  position: absolute;
-  inset: -6% 0;
+  position: relative;
   width: 100%;
-  height: 112%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 0;
+  display: block;
+  filter: grayscale(100%);
 }
 
 @media (max-width: 760px) {
   .mosaico {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .item[data-orientacao='h'] {
-    grid-column: span 2;
+    grid-column: span 1;
+    aspect-ratio: 4 / 3;
   }
 
   .item[data-orientacao='v'] {
     grid-column: span 1;
+    aspect-ratio: 3 / 4;
+  }
+
+  .item:nth-child(odd) {
+    margin-top: 0;
+  }
+
+  .item {
+    padding: 10px 10px 40px 10px;
+    align-items: stretch;
+  }
+
+  .foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

@@ -12,25 +12,31 @@
 .list {
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
 }
 
 .itemInner {
   display: grid;
   grid-template-columns: 4rem 1fr;
   gap: 1.5rem;
-  align-items: baseline;
-  padding-block: clamp(0.9rem, 1.8vw, 1.4rem);
+  align-items: flex-start;
+  padding-block: 1.2rem;
 }
 
 .num {
   color: var(--accent);
+  line-height: 1.05;
+  align-self: center;
 }
 
 .text {
   font-weight: 500;
   max-width: 30em;
+  line-height: 1.05;
 }
 
 .item:last-child .text {

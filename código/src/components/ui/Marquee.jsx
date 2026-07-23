@@ -8,8 +8,8 @@ import styles from './Marquee.module.css'
 export default function Marquee({ items, duration = 22, className = '' }) {
   const group = (hidden) => (
     <div className={styles.group} aria-hidden={hidden || undefined}>
-      {items.map((item) => (
-        <span key={item} className={styles.item}>
+      {items.map((item, i) => (
+        <span key={`${item}-${i}`} className={styles.item}>
           {item}
           <span className={styles.dot} aria-hidden="true">
             •

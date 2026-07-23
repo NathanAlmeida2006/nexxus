@@ -1,5 +1,4 @@
 import { team } from '../../../data/content'
-import useParallax from '../../../hooks/useParallax'
 import useReveal from '../../../hooks/useReveal'
 import RevealText from '../../ui/RevealText'
 import TextCta from '../../ui/TextCta'
@@ -12,7 +11,6 @@ import styles from './Team.module.css'
  */
 export default function Team() {
   const ref = useReveal({ threshold: 0.2 })
-  const fotoRef = useParallax(0.9)
 
   return (
     <section id="nozes" className="section" data-theme="navy" ref={ref}>
@@ -42,7 +40,6 @@ export default function Team() {
           <figure className={`${styles.figura} reveal reveal-tilt`} style={{ '--i': 3 }}>
             <div className={styles.moldura}>
               <img
-                ref={fotoRef}
                 className={styles.foto}
                 src={`${team.photo.base}-1600.webp`}
                 srcSet={`${team.photo.base}-900.webp 900w, ${team.photo.base}-1600.webp 1600w`}
