@@ -70,14 +70,22 @@
   filter: grayscale(0%);
 }
 
+/*
+ * Mobile: mesma estrutura do desktop (faixa que abre a ativa), porém tudo
+ * dimensionado em vw pra a tira INTEIRA caber na tela — 4 tiras finas + 1
+ * aberta + gaps < 100vw. Assim nenhuma foto fica cortada pela borda e não
+ * precisa arrastar. A largura aberta continua var(--h) * 2/3 (proporção 2:3
+ * da foto), então a expandida também não corta o conteúdo.
+ */
 @media (max-width: 760px) {
   .trilha {
-    --h: clamp(22rem, 62vh, 34rem);
-    gap: 0.4rem;
+    --h: 84vw;
+    gap: 1vw;
+    padding-inline: 3vw;
   }
 
   .item {
-    width: 2.75rem;
+    width: 8vw;
     border-radius: 12px;
   }
 }
