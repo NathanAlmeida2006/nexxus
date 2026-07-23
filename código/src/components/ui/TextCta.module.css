@@ -1,17 +1,13 @@
+/* Âncora magnética: só posiciona/transforma. A caixa-adesivo é o .face (.btn). */
 .cta {
   display: inline-flex;
-  align-items: baseline;
-  gap: 0.6em;
   font-size: var(--text-micro);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   transition: transform 300ms var(--ease-expo);
   will-change: transform;
 }
 
 .glyph {
-  color: var(--accent);
+  color: inherit;
   transition: transform var(--dur-micro) var(--ease-standard);
 }
 

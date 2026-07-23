@@ -206,6 +206,53 @@ h3 {
 }
 
 /*
+ * Botão-adesivo: a caixa clicável dos CTAs. Preenchimento sólido + contorno +
+ * sombra dura chapada (offset, sem blur — coerente com a estética sticker do
+ * Briefing, nada de sombra "realista"). No hover a peça sobe e a sombra cresce;
+ * no clique ela afunda e a sombra some (feedback tátil). A paleta vem dos
+ * tokens --btn-* de cada tema. Onde há efeito magnético (transform via JS no
+ * elemento pai), o transform de press mora aqui, no filho — sem conflito.
+ */
+.btn {
+  /* Sem preenchimento: tinta (contorno + sombra + texto) = foreground do tema. */
+  --_ink: var(--btn-ink, var(--fg));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55em;
+  padding: 0.85em 1.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--_ink);
+  background: transparent;
+  border: 2px solid var(--_ink);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 0 var(--_ink);
+  transition:
+    transform 200ms var(--ease-back),
+    box-shadow 200ms var(--ease-standard);
+}
+
+.btn:hover,
+.btn:focus-visible,
+:focus-visible > .btn,
+a:hover > .btn,
+button:hover > .btn {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 var(--_ink);
+}
+
+.btn:active,
+:active > .btn,
+a:active > .btn,
+button:active > .btn {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 0 var(--_ink);
+  transition-duration: 60ms;
+}
+
+/*
  * Sistema de reveal por scroll: translateY + opacity com stagger,
  * e máscara de linha (linhas sobem dentro de overflow: hidden).
  */

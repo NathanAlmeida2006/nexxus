@@ -124,18 +124,21 @@ select.control:valid ~ .label {
   will-change: transform;
 }
 
+/* Par de CTAs vazados de mesmo tamanho (WhatsApp + enviar). Largura fixa
+   baseada no viewport para ficarem idênticos mesmo em colunas diferentes. */
+.pair {
+  width: min(24rem, calc(100vw - 3rem));
+  justify-content: center;
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+
 .submit {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.6em;
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.8rem;
 }
 
 .glyph {
-  color: var(--accent);
+  color: inherit;
   transition: transform var(--dur-micro) var(--ease-standard);
 }
 

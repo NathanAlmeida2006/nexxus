@@ -87,7 +87,7 @@ export default function LeadForm() {
               {leadForm.lead}
             </p>
             <div className="reveal" style={{ '--i': 3 }}>
-              <TextCta href={site.whatsapp} target="_blank" rel="noreferrer">
+              <TextCta href={site.whatsapp} target="_blank" rel="noreferrer" faceClassName={styles.pair}>
                 {leadForm.whatsappCta}
               </TextCta>
             </div>
@@ -109,11 +109,11 @@ export default function LeadForm() {
             <Field id="obs" label={leadForm.fields.obs} as="textarea" full index={10} />
             <div className={`${styles.actions} reveal reveal-pop`} style={{ '--i': 11 }}>
               <span ref={magRef} className={styles.magnet}>
-                <button type="submit" className={styles.submit}>
+                <button type="submit" className={`btn ${styles.submit} ${styles.pair}`}>
                   <span className={styles.glyph} aria-hidden="true">
                     ↳
                   </span>
-                  <span className="link-underline">{leadForm.submit}</span>
+                  <span>{leadForm.submit}</span>
                 </button>
               </span>
               <p className={styles.privacy}>{leadForm.privacy}</p>
